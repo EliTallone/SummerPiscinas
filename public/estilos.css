@@ -390,4 +390,8 @@ footer a { color: white; text-decoration: none; }
             transition: all 0.3s ease;
             z-index: 1000;
         }
-        
+        /* 💥 REGLA CSS DEFINITIVA PARA SUB-SUBMENÚ 💥 */
+    /* Fuerza el display block para que el menú de 3er nivel funcione */
+    .submenu-piscinas-item:hover > ul {
+        display: block !important; 
+    }

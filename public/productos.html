@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Productos - Summer Piscinas</title>
+  <!-- ✅ TAILWIND CSS AGREGADO -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="estilos.css">
 
   <style>
@@ -33,28 +35,52 @@
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
     }
+    .producto img {
+  width: 100%;
+  height: 150px;         /* o el alto que prefieras */
+  object-fit: contain;   /* evita que se corte */
+}
+
   </style>
 </head>
 <body>
-  <header>
-        <h2>Summer Piscinas</h2>
-        <nav>
-            <ul>
-                <li class="dropdown">
-                    <a href="#">Productos ▼</a>
-                    <ul class="dropdown-content">
-                        <li><a href="productos.html">Ver Todos</a></li>
-                        <li><a href="limpieza.html">Limpieza</a></li>
-                        <li><a href="piscinas.html">Piscinas</a></li>
-                        <li><a href="repuestos.html">Repuestos</a></li>
-                        <li><a href="mantenimiento.html">Mantenimiento</a></li>
-                    </ul>
-                </li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-        <button id="cart-button">🛒 Carrito (<span id="cart-count">0</span>)</button>
-    </header>
+ <header class="bg-white shadow-lg sticky top-0 z-50">
+<div class="container mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
+<div class="flex items-center space-x-3">
+<img src="img/WhatsApp Image 2025-10-08 at 14.14.18.jpeg" alt="Logo Summer Piscinas" class="h-12 w-12 object-cover rounded-full">
+<h2 class="text-xl font-extrabold text-blue-600">Summer Piscinas</h2>
+</div>
+<nav class="mt-2 md:mt-0">
+  <ul class="flex flex-wrap justify-center space-x-1 md:space-x-2">
+    <li class="relative group">
+      <a href="#" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition font-semibold whitespace-nowrap">Productos ▼</a>
+      <ul class="absolute hidden group-hover:block bg-white border border-gray-200 rounded-lg shadow-xl z-10 min-w-max">
+        <li><a href="productos.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Ver Todos</a></li>
+        <li><a href="limpieza.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Limpieza</a></li>
+        
+        <li class="relative submenu-piscinas-item">
+          <a href="piscinas.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 pr-8">
+            Piscinas <i class="fas fa-caret-right absolute right-2 top-3 text-xs"></i>
+          </a>
+          <ul class="absolute hidden bg-gray-50 border border-gray-300 rounded-lg shadow-xl z-30 min-w-max left-full top-0">
+            <li><a href="piscinas.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-200 font-semibold">Accesorios y Equipamiento para Piscinas</a></li>
+            <li><a href="productos_piscinas.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-200">Productos para Piscinas</a></li>
+            <li><a href="inflables.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-200">Inflables</a></li>
+          </ul>
+        </li>
+        <li><a href="repuestos.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Repuestos</a></li>
+        <li><a href="mantenimiento.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Mantenimiento</a></li>
+      </ul>
+    </li>
+    <li><a href="contacto.html" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition font-semibold whitespace-nowrap">Contacto</a></li>
+  </ul>
+</nav>
+<div class="flex items-center space-x-3 mt-2 md:mt-0">
+<input type="text" placeholder="Buscar productos..." class="hidden sm:block px-3 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-32 md:w-40 text-sm">
+<button id="cart-button" onclick="window.location.href='carrito.html'" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-3 rounded-lg transition shadow-md flex items-center text-sm"> 🛒 Carrito (<span id="cart-count">0</span>) </button>
+</div>
+</div>
+</header>
 
   <section class="banner">
     <h1>Catálogo de Productos</h1>
@@ -62,18 +88,351 @@
   </section>
 
   <section class="productos">
+    
     <div class="producto">
-      <img src="https://images.unsplash.com/photo-1558618047-3c8c76b1e9f5?w=250&h=150" alt="Cloro">
-      <h3>Cloro Granulado 5kg</h3>
-      <p>ARS 2.500</p>
+      <img src="img/bomba1.webp" alt="Bomba Vulcano BAE 075 HP">
+      <h3>Bomba Vulcano BAE 0.75HP</h3>
+      <p>ARS $406.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/bomba2.webp" alt="Bomba Vulcano 1HP">
+      <h3>Bomba Vulcano BAP 1HP</h3>
+      <p>ARS $475.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/bomba3.webp" alt="Bomba Vulcano BAP 075HP">
+      <h3>Bomba Vulcano BAP 0.75HP</h3>
+      <p>ARS $277.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/filtroVC10.webp" alt="Filtro Vulcano VC10">
+      <h3>Filtro Vulcano VC10</h3>
+      <p>ARS $145.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/filtroVC20.webp" alt="Filtro Vulcano VC20">
+      <h3>Filtro Vulcano VC20</h3>
+      <p>ARS $145.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/filtroVC30.webp" alt="Filtro Vulcano VC30">
+      <h3>Filtro Vulcano VC30</h3>
+      <p>ARS $240.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/filtroVC50.webp" alt="Filtro Vulcano VC50">
+      <h3>Filtro Vulcano VC50</h3>
+      <p>ARS $271.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/barrefondoAlu.webp" alt="Barrefondo Aluminio">
+      <h3>Barrefondo Aluminio Vulcano</h3>
+      <p>ARS $90.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/barrefondoTriangular.webp" alt="Barrefondo Triangular">
+      <h3>Barrefondo Triangular Vulcano</h3>
+      <p>ARS $24.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/barrefondo8ruedas.webp" alt="Barrefondo 8 ruedas">
+      <h3>Barrefondo 8 ruedas Vulcano</h3>
+      <p>ARS $30.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/barrefondoMedialuna.webp" alt="Barrefondo Media luna">
+      <h3>Barrefondo Media Luna Vulcano</h3>
+      <p>ARS $24.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/mango360.webp" alt="Mango 3,60MTS">
+      <h3>Mango Telescópico Vulcano 3,60 MTS</h3>
+      <p>ARS $50.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/venturi.webp" alt="Barrefondo Venturi">
+      <h3>Barrefondo Venturi Vulcano para piletas de lona</h3>
+      <p>ARS $35.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/sacahojas1.webp" alt="Saca hojas bolsa grande">
+      <h3>Saca hojas bolsa grande Vulcano 32MM</h3>
+      <p>ARS $20.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/sacahojas2.webp" alt="Saca hojas plano">
+      <h3>Saca hojas plano Vulcano 32MM</h3>
+      <p>ARS $10.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/sacahojas3.webp" alt="Saca hojas bolsa y pala">
+      <h3>Saca hojas con bolsa y pala Vulcano 32MM</h3>
+      <p>ARS $23.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/manguera1.webp" alt="Manguera Vulcano">
+      <h3>Manguera Bicolor 1 1/2 Vulcano</h3>
+      <p>ARS $4.700 x mentro</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/skimmer.webp" alt="Skimmer Vulcano">
+      <h3>Skimmer Vulcano Boca Chica Para Piscinas De Hormigón</h3>
+      <p>ARS $67.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+    <img src="img/limpieza1.webp" alt="Blem">
+    <h3>Blem Original Lustra Muebles 360ml</h3>
+    <p>ARS $5.200</p>
+    <button>Agregar al Carrito</button>
+  </div>
+  <div class="producto">
+    <img src="img/limpieza2.webp" alt="Lavandina en gel">
+    <h3>Lavandina En Gel Ayudin Menta 1lt</h3>
+    <p>ARS $4.500</p>
+    <button>Agregar al Carrito</button>
+  </div>
+  <div class="producto">
+    <img src="img/limpieza3.webp" alt="Jabon de ropa">
+    <h3>Granby Bicarbonato jabón líquido baja espuma de rosas 3 litros</h3>
+    <p>ARS $7.600</p>
+    <button>Agregar al Carrito</button>
+  </div>
+  <div class="producto">
+    <img src="img/limpieza4.webp" alt="Jabon de tocador">
+    <h3>Jabón De Tocador Protex Aloe 125 G</h3>
+    <p>ARS $2.000</p>
+    <button>Agregar al Carrito</button>
+  </div>
+  <div class="producto">
+    <img src="img/limpieza5.webp" alt="Ceramicol">
+    <h3>Ceramicol Botella - Unidad - 1 - 900 mL</h3>
+    <p>ARS $4.900</p>
+    <button>Agregar al Carrito</button>
+  </div>
+  <div class="producto">
+    <img src="img/limpieza6.webp" alt="Ceramicol">
+    <h3>Limpiador Ceramicol Original en aerosol</h3>
+    <p>ARS $5.200</p>
+    <button>Agregar al Carrito</button>
+  </div>
+  <div class="producto">
+    <img src="img/limpieza7.webp" alt="Echo">
+    <h3>Repuesto Acondicionador De Piso 3 En 1 Clásico 450cm3 Echo</h3>
+    <p>ARS $5.200</p>
+    <button>Agregar al Carrito</button>
+  </div>
+  <div class="producto">
+    <img src="img/limpieza8.webp" alt="Echo">
+    <h3>Limpiador Echo Lavanda Acondicionador Pisos Botella 800 Ml</h3>
+    <p>ARS $6.600</p>
+    <button>Agregar al Carrito</button>
+  </div>
+  <div class="producto">
+    <img src="img/limpieza9.webp" alt="Saphirus aerosol">
+    <h3>Aromatizante Saphirus Aerosol</h3>
+    <p>ARS $4.600 C/U</p>
+    <button>Agregar al Carrito</button>
+  </div>
+  <div class="producto">
+    <img src="img/limpieza10.webp" alt="Make aerosol">
+    <h3>Aromatizante Make Aerosol</h3>
+    <p>ARS $4.200 C/U</p>
+    <button>Agregar al Carrito</button>
+  </div>
+  <div class="producto">
+    <img src="img/limpieza11.webp" alt="Balde centrifugo">
+    <h3>Balde Centrifugo Escurridor Lampazo Trapeador Piso con repuesto</h3>
+    <p>ARS $35.000</p>
+    <button>Agregar al Carrito</button>
+  </div>
+  <div class="producto">
+    <img src="img/limpieza12.webp" alt="Mopa con rociador">
+    <h3>Trapeador Mopa Rociador Spray 400ml </h3>
+    <p>ARS $40.000</p>
+    <button>Agregar al Carrito</button>
+  </div>
+  <div class="producto">
+    <img src="img/limpieza13.webp" alt="Papel higiénico">
+    <h3>Papel higienico Elegante simple hoja x4 </h3>
+    <p>ARS $2.600</p>
+    <button>Agregar al Carrito</button>
+  </div>
+  <div class="producto">
+    <img src="img/limpieza14.webp" alt="Rollo de cocina">
+    <h3>Rollo de cocina 200 paños Elegante</h3>
+    <p>ARS $3.500</p>
+    <button>Agregar al Carrito</button>
+  </div>
+  <div class="producto">
+    <img src="img/limpieza15.webp" alt="Limpia inodoros">
+    <h3>Limpia Inodoros con depósito tapa bambu</h3>
+    <p>ARS $16.000</p>
+    <button>Agregar al Carrito</button>
+  </div>
+  <div class="producto">
+    <img src="img/limpieza16.webp" alt="Sahumerios">
+    <h3>Sahumerios Momentos x5</h3>
+    <p>ARS $2.600</p>
+    <button>Agregar al Carrito</button>
+  </div>
+   <div class="producto">
+    <img src="img/limpieza17.webp" alt="Sahumerios">
+    <h3>Sahumerios Mini Tibetano Aromanza x8</h3>
+    <p>ARS $2.900</p>
+    <button>Agregar al Carrito</button>
+  </div>
+  <div class="producto">
+    <img src="img/limpieza18.webp" alt="Esponja">
+    <h3>Esponja azul Romyl</h3>
+    <p>ARS $800</p>
+    <button>Agregar al Carrito</button>
+  </div>
+
+   <div class="producto">
+      <img src="img/respuesto1.webp" alt="Repuesto bomba">
+      <h3>Canasto Vulcano Repuesto Bomba Bae 5 lts</h3>
+      <p>ARS $9.000</p>
       <button>Agregar al Carrito</button>
     </div>
     <div class="producto">
-      <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=250&h=150" alt="pH +">
-      <h3>Balancer pH + 1L</h3>
-      <p>ARS 1.200</p>
+      <img src="img/repuesto2.webp" alt="Repuesto sello">
+      <h3>Sello Mecánico Con Pista Cerámica Repuesto Bombas Vulcano</h3>
+      <p>ARS $14.000</p>
       <button>Agregar al Carrito</button>
     </div>
+    <div class="producto">
+      <img src="img/repuesto3.webp" alt="Repuesto buje y tuerca">
+      <h3>Repuesto Tuerca Y Buje Vulcano Bomba Bae Y Multivalvula</h3>
+      <p>ARS $5.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+    <div class="producto">
+      <img src="img/repuesto4.webp" alt="Repuesto cabezal ">
+      <h3>Repuesto Cabezal Vulcano Multiválvula 6 Vía 23307b</h3>
+      <p>ARS $56.500</p>
+      <button>Agregar al Carrito</button>
+    </div>
+    <div class="producto">
+      <img src="img/repuesto5.webp" alt="Repuesto cartucho">
+      <h3>Repuesto Cartucho Filtrante Para Bomba Baf Vulcano 239030</h3>
+      <p>ARS $34.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+    <div class="producto">
+      <img src="img/repuesto6.webp" alt="Repuesto impulsor">
+      <h3>Impulsor Bomba Vulcano Repuesto Bae Bat Bap Varios Modelos </h3>
+      <p>ARS $15.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+    <div class="producto">
+      <img src="img/repuesto7.webp" alt="Repuesto Oring">
+      <h3>Repuesto O Ring Para Difusor De Bomba Autocebante Vulcano</h3>
+      <p>ARS $4.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+    <div class="producto">
+      <img src="img/repuesto8.webp" alt="Repuesto tapa visora">
+      <h3>Repuesto Tapa Visora Vulcano Bomba Bac / Bap Autocebante</h3>
+      <p>ARS $15.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+    <div class="producto">
+      <img src="img/repuesto9.webp" alt="Repuesto tapa rejilla">
+      <h3>Tapa Rejilla Para Skimmer Repuesto Vulcano Piscinas Piletas</h3>
+      <p>ARS $8.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+    <div class="producto">
+      <img src="img/repuesto10.webp" alt="Repuesto boquilla">
+      <h3>Repuesto Boquilla Y Tuerca Vulcano Para Mango Telescopico </h3>
+      <p>ARS $4.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+    <div class="producto">
+      <img src="img/repuesto11.webp" alt="Repuesto manija">
+      <h3>Manija Selectora Vulcano Multivalvula 3 Y 6 Vías De Repuesto</h3>
+      <p>ARS $4.500</p>
+      <button>Agregar al Carrito</button>
+    </div>
+    <div class="producto">
+      <img src="img/repuesto12.webp" alt="Repuesto horqueta">
+      <h3>Horqueta Arco Repuesto Limpiafondo Aluminio Vulcano</h3>
+      <p>ARS $6.500</p>
+      <button>Agregar al Carrito</button>
+    </div>
+     <div class="producto">
+      <img src="img/repuesto13.webp" alt="Repuesto canasta">
+      <h3>Canasta Con Manija P/ Skimmer Marca Vulcano</h3>
+      <p>ARS $9.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+    <div class="producto">
+      <img src="img/repuesto14.webp" alt="Repuesto cepillo">
+      <h3>Repuesto Cepillo Con Bastidor Vulcano Para Limpiafondo 35cm</h3>
+      <p>ARS $18.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+    <div class="producto">
+      <img src="img/repuesto15.webp" alt="Repuesto junta estrella">
+      <h3>Junta Estrella Vulcano Piscina Repuesto Multivalvula 6 Vias </h3>
+      <p>ARS $5.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+    <div class="producto">
+      <img src="img/repuesto16.webp" alt="Repuesto lente rugoso">
+      <h3>Repuesto Lente Rugoso Luces Led Pileta Vulcano</h3>
+      <p>ARS $10.800</p>
+      <button>Agregar al Carrito</button>
+    </div>
+    <div class="producto">
+      <img src="img/repuesto17.webp" alt="Repuesto rueda con perno">
+      <h3>Rueda Con Perno Limpiafondos Aluminio 48 Y 83 Cm Vulcano </h3>
+      <p>ARS $4.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+    <div class="producto">
+      <img src="img/repuesto18.webp" alt="Repuesto carga filtrante">
+      <h3>Carga Filtrante Vulcano Para Filtro Vc-30</h3>
+      <p>ARS $55.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
 
     <!-- Botón Volver al Inicio -->
   <div style="text-align:center; width:100%; margin-top:30px;">
@@ -81,8 +440,39 @@
   </div>
   </section>
 
-  <footer>
-    <p>&copy; 2023 Summer Piscinas - Argentina.</p>
+  <footer class="bg-gray-800 text-white py-10 mt-10" id="contacto">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 border-b border-gray-700 pb-6 mb-6">
+            <div>
+                <h4 class="text-lg font-bold mb-3 text-blue-400">Summer Piscinas</h4>
+                <p class="text-sm text-gray-400">Tu fuente confiable para productos de piscina de calidad en Argentina.</p>
+            </div>
+            <div>
+                <h4 class="text-md font-semibold mb-3">Enlaces Rápidos</h4>
+                <ul class="space-y-1 text-sm">
+                    <li><a href="#productos" class="text-gray-400 hover:text-white transition">Productos</a></li>
+                    <li><a href="#testimonios" class="text-gray-400 hover:text-white transition">Testimonios</a></li>
+                    <li><a href="#como-comprar" class="text-gray-400 hover:text-white transition">Cómo Comprar</a></li>
+                    <li><a href="contacto.html" class="text-gray-400 hover:text-white transition">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-md font-semibold mb-3">Contacto</h4>
+                <p class="text-sm text-gray-400">Email: info@summerpiscinas.com</p>
+                <p class="text-sm text-gray-400">Tel: +54 9 3585 615079</p>
+            </div>
+            <div>
+                <h4 class="text-md font-semibold mb-3">Síguenos</h4>
+                <div class="flex space-x-4 text-xl">
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <p class="text-gray-400 text-sm">&copy; 2025 Summer Piscinas - Argentina. Envíos con OCA y Mercado Pago.</p>
+        </div>
+    </div>
   </footer>
 
   <!-- Mensaje flotante -->

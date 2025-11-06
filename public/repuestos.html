@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Repuestos - Summer Piscinas</title>
+  <!-- ✅ TAILWIND CSS AGREGADO -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="estilos.css">
   <style>
     /* Estilo del botón Volver al Inicio con animación */
@@ -42,25 +44,43 @@
   </style>
 </head>
 <body>
-  <header>
-        <h2>Summer Piscinas</h2>
-        <nav>
-            <ul>
-                <li class="dropdown">
-                    <a href="#">Productos ▼</a>
-                    <ul class="dropdown-content">
-                        <li><a href="productos.html">Ver Todos</a></li>
-                        <li><a href="limpieza.html">Limpieza</a></li>
-                        <li><a href="piscinas.html">Piscinas</a></li>
-                        <li><a href="repuestos.html">Repuestos</a></li>
-                        <li><a href="mantenimiento.html">Mantenimiento</a></li>
-                    </ul>
-                </li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-        <button id="cart-button">🛒 Carrito (<span id="cart-count">0</span>)</button>
-    </header>
+<header class="bg-white shadow-lg sticky top-0 z-50">
+<div class="container mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
+<div class="flex items-center space-x-3">
+<img src="img/WhatsApp Image 2025-10-08 at 14.14.18.jpeg" alt="Logo Summer Piscinas" class="h-12 w-12 object-cover rounded-full">
+<h2 class="text-xl font-extrabold text-blue-600">Summer Piscinas</h2>
+</div>
+<nav class="mt-2 md:mt-0">
+  <ul class="flex flex-wrap justify-center space-x-1 md:space-x-2">
+    <li class="relative group">
+      <a href="#" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition font-semibold whitespace-nowrap">Productos ▼</a>
+      <ul class="absolute hidden group-hover:block bg-white border border-gray-200 rounded-lg shadow-xl z-10 min-w-max">
+        <li><a href="productos.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Ver Todos</a></li>
+        <li><a href="limpieza.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Limpieza</a></li>
+        
+        <li class="relative submenu-piscinas-item">
+          <a href="piscinas.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 pr-8">
+            Piscinas <i class="fas fa-caret-right absolute right-2 top-3 text-xs"></i>
+          </a>
+          <ul class="absolute hidden bg-gray-50 border border-gray-300 rounded-lg shadow-xl z-30 min-w-max left-full top-0">
+            <li><a href="piscinas.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-200 font-semibold">Accesorios y Equipamiento para Piscinas</a></li>
+            <li><a href="productos_piscinas.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-200">Productos para Piscinas</a></li>
+            <li><a href="inflables.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-200">Inflables</a></li>
+          </ul>
+        </li>
+        <li><a href="repuestos.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Repuestos</a></li>
+        <li><a href="mantenimiento.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Mantenimiento</a></li>
+      </ul>
+    </li>
+    <li><a href="contacto.html" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition font-semibold whitespace-nowrap">Contacto</a></li>
+  </ul>
+</nav>
+<div class="flex items-center space-x-3 mt-2 md:mt-0">
+<input type="text" placeholder="Buscar productos..." class="hidden sm:block px-3 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-32 md:w-40 text-sm">
+<button id="cart-button" onclick="window.location.href='carrito.html'" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-3 rounded-lg transition shadow-md flex items-center text-sm"> 🛒 Carrito (<span id="cart-count">0</span>) </button>
+</div>
+</div>
+</header>
 
   <section class="banner">
     <h1>Repuestos</h1>
@@ -182,8 +202,39 @@
   </div>
   </section>
 
-  <footer>
-    <p>&copy; 2023 Summer Piscinas - Argentina.</p>
+  <footer class="bg-gray-800 text-white py-10 mt-10" id="contacto">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 border-b border-gray-700 pb-6 mb-6">
+            <div>
+                <h4 class="text-lg font-bold mb-3 text-blue-400">Summer Piscinas</h4>
+                <p class="text-sm text-gray-400">Tu fuente confiable para productos de piscina de calidad en Argentina.</p>
+            </div>
+            <div>
+                <h4 class="text-md font-semibold mb-3">Enlaces Rápidos</h4>
+                <ul class="space-y-1 text-sm">
+                    <li><a href="#productos" class="text-gray-400 hover:text-white transition">Productos</a></li>
+                    <li><a href="#testimonios" class="text-gray-400 hover:text-white transition">Testimonios</a></li>
+                    <li><a href="#como-comprar" class="text-gray-400 hover:text-white transition">Cómo Comprar</a></li>
+                    <li><a href="contacto.html" class="text-gray-400 hover:text-white transition">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-md font-semibold mb-3">Contacto</h4>
+                <p class="text-sm text-gray-400">Email: info@summerpiscinas.com</p>
+                <p class="text-sm text-gray-400">Tel: +54 9 3585 615079</p>
+            </div>
+            <div>
+                <h4 class="text-md font-semibold mb-3">Síguenos</h4>
+                <div class="flex space-x-4 text-xl">
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <p class="text-gray-400 text-sm">&copy; 2025 Summer Piscinas - Argentina. Envíos con OCA y Mercado Pago.</p>
+        </div>
+    </div>
   </footer>
 
   <!-- Mensaje flotante -->

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Summer Piscinas - Inflables y Juguetes para Pileta</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet"/>
+    <style>
+        /* Estilos CSS del HEAD y Corrección del Submenú */
+        body { font-family: "Poppins", sans-serif; overflow-x: hidden; scroll-behavior: smooth; background-color: #f8f8f8; }
+        
+        /* Regla para asegurar el funcionamiento del sub-submenú */
+        .submenu-piscinas-item:hover > ul {
+            display: block !important; 
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+   <header class="bg-white shadow-lg sticky top-0 z-50">
+<div class="container mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
+<div class="flex items-center space-x-3">
+<img src="img/WhatsApp Image 2025-10-08 at 14.14.18.jpeg" alt="Logo Summer Piscinas" class="h-12 w-12 object-cover rounded-full">
+<h2 class="text-xl font-extrabold text-blue-600">Summer Piscinas</h2>
+</div>
+<nav class="mt-2 md:mt-0">
+  <ul class="flex flex-wrap justify-center space-x-1 md:space-x-2">
+    <li class="relative group">
+      <a href="#" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition font-semibold whitespace-nowrap">Productos ▼</a>
+      <ul class="absolute hidden group-hover:block bg-white border border-gray-200 rounded-lg shadow-xl z-10 min-w-max">
+        <li><a href="productos.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Ver Todos</a></li>
+        <li><a href="limpieza.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Limpieza</a></li>
+        
+        <li class="relative submenu-piscinas-item">
+          <a href="piscinas.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 pr-8">
+            Piscinas <i class="fas fa-caret-right absolute right-2 top-3 text-xs"></i>
+          </a>
+          <ul class="absolute hidden bg-gray-50 border border-gray-300 rounded-lg shadow-xl z-30 min-w-max left-full top-0">
+            <li><a href="piscinas.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-200 font-semibold">Accesorios y Equipamiento para Piscinas</a></li>
+            <li><a href="productos_piscinas.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-200">Productos para Piscinas</a></li>
+            <li><a href="inflables.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-200">Inflables</a></li>
+          </ul>
+        </li>
+        <li><a href="repuestos.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Repuestos</a></li>
+        <li><a href="mantenimiento.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Mantenimiento</a></li>
+      </ul>
+    </li>
+    <li><a href="contacto.html" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition font-semibold whitespace-nowrap">Contacto</a></li>
+  </ul>
+</nav>
+<div class="flex items-center space-x-3 mt-2 md:mt-0">
+<input type="text" placeholder="Buscar productos..." class="hidden sm:block px-3 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-32 md:w-40 text-sm">
+<button id="cart-button" onclick="window.location.href='carrito.html'" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-3 rounded-lg transition shadow-md flex items-center text-sm"> 🛒 Carrito (<span id="cart-count">0</span>) </button>
+</div>
+</div>
+</header>
+
+    <main class="container mx-auto px-4 py-12">
+        <h1 class="text-4xl font-extrabold text-center text-blue-700 mb-4">🎈 Inflables y Diversión para tu Pileta</h1>
+        <p class="text-xl text-center text-gray-600 mb-12">Colchones, flotadores y juegos para disfrutar al máximo el verano en Argentina.</p>
+
+        <div class="flex justify-center space-x-4 mb-10">
+            <button class="px-4 py-2 bg-blue-600 text-white rounded-full text-sm hover:bg-blue-700 transition">Todos</button>
+            <button class="px-4 py-2 bg-white text-gray-700 border border-gray-300 rounded-full text-sm hover:bg-gray-100 transition">Flotadores Gigantes</button>
+            <button class="px-4 py-2 bg-white text-gray-700 border border-gray-300 rounded-full text-sm hover:bg-gray-100 transition">Juegos Acuáticos</button>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
+                <img src="https://via.placeholder.com/400x300?text=Flotador+Unicornio" alt="Flotador Unicornio Gigante" class="w-full h-48 object-cover">
+                <div class="p-5 text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Flotador Unicornio XXL</h3>
+                    <p class="text-sm text-gray-500 mb-3">Material PVC reforzado. Capacidad: 2 personas.</p>
+                    <p class="text-2xl font-extrabold text-orange-600 mb-4">ARS 6.990</p>
+                    <button onclick="agregarAlCarrito('Flotador Unicornio XXL', 6990)" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-semibold">
+                        Añadir al Carrito
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
+                <img src="https://via.placeholder.com/400x300?text=Colchoneta+Anana" alt="Colchoneta de Ananá" class="w-full h-48 object-cover">
+                <div class="p-5 text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Colchoneta Inflable Ananá</h3>
+                    <p class="text-sm text-gray-500 mb-3">Diseño tropical, ideal para broncearse.</p>
+                    <p class="text-2xl font-extrabold text-orange-600 mb-4">ARS 3.500</p>
+                    <button onclick="agregarAlCarrito('Colchoneta Ananá', 3500)" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-semibold">
+                        Añadir al Carrito
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
+                <img src="https://via.placeholder.com/400x300?text=Voley+Acuatico" alt="Juego de Voley Acuático" class="w-full h-48 object-cover">
+                <div class="p-5 text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Juego de Voley Inflable</h3>
+                    <p class="text-sm text-gray-500 mb-3">Red flotante con pesos para estabilidad.</p>
+                    <p class="text-2xl font-extrabold text-orange-600 mb-4">ARS 4.800</p>
+                    <button onclick="agregarAlCarrito('Juego Voley Inflable', 4800)" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-semibold">
+                        Añadir al Carrito
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
+                <img src="https://via.placeholder.com/400x300?text=Inflador+Electrico" alt="Inflador Eléctrico" class="w-full h-48 object-cover">
+                <div class="p-5 text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Inflador Eléctrico 220V</h3>
+                    <p class="text-sm text-gray-500 mb-3">Rápido y potente. Incluye 3 boquillas.</p>
+                    <p class="text-2xl font-extrabold text-orange-600 mb-4">ARS 2.100</p>
+                    <button onclick="agregarAlCarrito('Inflador Eléctrico', 2100)" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-semibold">
+                        Añadir al Carrito
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-16 p-8 bg-blue-100 rounded-xl shadow-inner">
+            <h3 class="text-2xl font-bold text-blue-700 mb-3">¡Garantía de Diversión!</h3>
+            <p class="text-gray-600">Todos nuestros inflables tienen garantía por defectos de fábrica y están hechos con materiales resistentes al cloro y al sol.</p>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400">&copy; 2025 Summer Piscinas - Inflables.</p>
+        </div>
+    </footer>
+    
+    <div id="toast" class="fixed top-20 right-4 bg-green-500 text-white p-3 rounded-lg shadow-xl opacity-0 transition duration-300 z-50">
+        Producto agregado al carrito 🛒
+    </div>
+
+    <script>
+        // Lógica del Carrito (Debe ser idéntica en todas las páginas para mantener la funcionalidad)
+        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        
+        function actualizarContador() {
+            document.getElementById("cart-count").textContent = carrito.length;
+        }
+        
+        function mostrarToast() {
+            const toast = document.getElementById("toast");
+            toast.style.opacity = "1";
+            setTimeout(() => {
+                toast.style.opacity = "0";
+            }, 1500);
+        }
+        
+        function agregarAlCarrito(nombre, precio) {
+            precio = Number(precio);
+            carrito.push({ nombre, precio });
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+            actualizarContador();
+            mostrarToast();
+        }
+        
+        actualizarContador();
+    </script>
+</body>
+</html>

@@ -1,382 +1,313 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Summer Piscinas - Productos para Piscinas en Argentina</title>
 <script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet"/>
 <style>
-body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-
-/* Blur hero text */
+/* 💡 MANTENEMOS TUS ESTILOS BASE Y ANIMACIONES ESPECÍFICAS si no las podemos replicar fácilmente con Tailwind */
+body {
+font-family: "Poppins", sans-serif;
+margin: 0;
+padding: 0;
+color: #333;
+overflow-x: hidden;
+scroll-behavior: smooth;
+/* Reemplaza esta ruta con la imagen de fondo real si la tienes */
+background-image: url('img/ChatGPT Image 8 oct 2025, 15_07_54.png');
+background-repeat: no-repeat;
+background-size: cover;
+background-attachment: scroll;
+background-position: center;
+}
+/* Adaptación de tu animación de texto a un estilo más moderno */
 .blur-text span {
-  display: inline-block;
-  filter: blur(10px);
-  opacity: 0;
-  transform: translateY(-50px);
-  transition: all 0.35s ease;
-  margin-right: 6px;
+display: inline-block;
+filter: blur(10px);
+opacity: 0;
+transform: translateY(-50px);
+transition: all 0.35s ease;
+margin-right: 7px;
+}
+/* ✅ Botón flotante WhatsApp (Mantenido de tu código original) */
+.whatsapp-float {
+position: fixed;
+width: 60px;
+height: 60px;
+bottom: 25px;
+right: 25px;
+background-color: #25d366;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+z-index: 1000;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.whatsapp-float img {
+width: 36px;
+height: 36px;
+}
+.whatsapp-float:hover {
+transform: scale(1.1);
+box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+/* Ajustes para el banner que usa imágenes específicas */
+.banner {
+/* Reemplaza esta ruta con la imagen de banner real si la tienes */
+background-image: url("img/WhatsApp Image 2025-10-08 at 14.14.18.jpeg");
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+text-align: center;
+padding: 270px 20px;
+color: white;
+position: relative;
+}
+/* Estilos del Toast (Mantenidos para la funcionalidad JS) */
+#toast {
+position: fixed;
+top: 20px;
+right: 20px;
+background-color: #28a745;
+color: white;
+padding: 12px 20px;
+border-radius: 8px;
+opacity: 0;
+transform: translateY(-20px);
+transition: all 0.3s ease;
+z-index: 1000;
 }
 
-/* Scroll fade-in animation */
-.scroll-animate {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s ease-out;
-}
-.scroll-animate.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.scrollbar-hide::-webkit-scrollbar { display: none; }
-.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-
-#hero { background-attachment: fixed; background-position: center; background-size: cover; }
-
-/* Carrusel flechas */
-.carousel-btn { @apply absolute top-1/2 transform -translate-y-1/2 bg-white text-gray-700 rounded-full p-3 shadow hover:bg-gray-200 z-20; }
-
-/* Dropdown animación escritorio */
-.dropdown {
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: all 200ms ease-in-out;
-}
-.dropdown.show {
-  opacity: 1;
-  transform: translateY(0);
+/* 💥 REGLA CSS DEFINITIVA PARA SUB-SUBMENÚ 💥 */
+/* Fuerza el display block para que el menú de 3er nivel funcione */
+.submenu-piscinas-item:hover > ul {
+    display: block !important; 
 }
 </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-50 text-gray-900">
 
-<!-- HEADER -->
-<header class="bg-blue-600 text-white sticky top-0 z-50 shadow-md">
-<div class="container mx-auto flex items-center justify-between p-4 flex-wrap">
-  <div class="flex items-center gap-2">
-    <a href="#hero">
-      <img src="img/WhatsApp Image 2025-10-08 at 14.14.18.jpeg" alt="Logo" class="h-14 w-14 rounded-full object-cover">
-    </a>
-    <h1 class="text-2xl font-bold"><a href="#hero">Summer Piscinas</a></h1>
-  </div>
-
-  <!-- Botón menú móvil -->
-  <div class="md:hidden">
-    <button id="menu-btn" class="focus:outline-none">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-    </button>
-  </div>
-
-  <!-- Menú escritorio -->
-  <nav class="hidden md:flex gap-4 items-center">
-    <ul class="flex gap-4 items-center">
-      <li><a href="#hero" class="px-4 py-2 rounded hover:bg-blue-700 transition">Inicio</a></li>
-      <li><a href="#promo" class="px-4 py-2 rounded hover:bg-blue-700 transition">Promo</a></li>
-      <li><a href="#categorias" class="px-4 py-2 rounded hover:bg-blue-700 transition">Categorías</a></li>
-      <li><a href="#como-comprar" class="px-4 py-2 rounded hover:bg-blue-700 transition">Cómo Comprar</a></li>
-      <!-- Dropdown Productos -->
-      <li class="relative">
-        <a href="#" id="products-btn" class="px-4 py-2 rounded hover:bg-blue-700 transition font-semibold">Productos</a>
-        <ul id="products-dropdown" class="dropdown absolute left-0 mt-2 w-56 bg-white text-black rounded shadow-lg">
-          <li><a href="#piscinas" class="block px-4 py-2 hover:bg-gray-200">Piscinas</a></li>
-          <li><a href="#mantenimiento" class="block px-4 py-2 hover:bg-gray-200">Mantenimiento</a></li>
-          <li><a href="#productos-limpieza" class="block px-4 py-2 hover:bg-gray-200">Productos de limpieza</a></li>
-          <li><a href="#otros" class="block px-4 py-2 hover:bg-gray-200">Otros</a></li>
-        </ul>
-      </li>
-      <li><a href="#testimonios" class="px-4 py-2 rounded hover:bg-blue-700 transition">Testimonios</a></li>
-      <li><a href="#marcas" class="px-4 py-2 rounded hover:bg-blue-700 transition">Marcas</a></li>
-      <li><a href="contacto.html" class="px-4 py-2 rounded hover:bg-blue-700 transition">Contacto</a></li>
-    </ul>
-  </nav>
-
-  <a href="carrito.html" id="cart-button" class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded font-bold mt-2 md:mt-0">
- 🛒 Carrito (<span id="cart-count">0</span>)
-</a>
-
+<header class="bg-white shadow-lg sticky top-0 z-50">
+<div class="container mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
+<div class="flex items-center space-x-3">
+<img src="img/WhatsApp Image 2025-10-08 at 14.14.18.jpeg" alt="Logo Summer Piscinas" class="h-12 w-12 object-cover rounded-full">
+<h2 class="text-xl font-extrabold text-blue-600">Summer Piscinas</h2>
 </div>
-
-<!-- Menú móvil -->
-<ul id="mobile-menu" class="md:hidden hidden bg-blue-500 text-white px-4 py-2 space-y-2">
-  <li><a href="#hero" class="block px-4 py-2 hover:bg-blue-400">Inicio</a></li>
-  <li><a href="#promo" class="block px-4 py-2 hover:bg-blue-400">Promo</a></li>
-  <li><a href="#categorias" class="block px-4 py-2 hover:bg-blue-400">Categorías</a></li>
-  <li><a href="#como-comprar" class="block px-4 py-2 hover:bg-blue-400">Cómo Comprar</a></li>
-  <li>
-    <button class="w-full text-left font-semibold" onclick="toggleDropdown('mobile-products')">Productos</button>
-    <ul id="mobile-products" class="hidden bg-blue-400 text-white rounded mt-1">
-      <li><a href="#piscinas" class="block px-4 py-2 hover:bg-blue-300">Piscinas</a></li>
-      <li><a href="#mantenimiento" class="block px-4 py-2 hover:bg-blue-300">Mantenimiento</a></li>
-      <li><a href="#productos-limpieza" class="block px-4 py-2 hover:bg-blue-300">Productos de limpieza</a></li>
-      <li><a href="#otros" class="block px-4 py-2 hover:bg-blue-300">Otros</a></li>
-    </ul>
-  </li>
-  <li><a href="#testimonios" class="block px-4 py-2 hover:bg-blue-400">Testimonios</a></li>
-  <li><a href="#marcas" class="block px-4 py-2 hover:bg-blue-400">Marcas</a></li>
-  <li><a href="contacto.html" class="block px-4 py-2 hover:bg-blue-400">Contacto</a></li>
-</ul>
+<nav class="mt-2 md:mt-0">
+  <ul class="flex flex-wrap justify-center space-x-1 md:space-x-2">
+    <li class="relative group">
+      <a href="#" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition font-semibold whitespace-nowrap">Productos ▼</a>
+      <ul class="absolute hidden group-hover:block bg-white border border-gray-200 rounded-lg shadow-xl z-10 min-w-max">
+        <li><a href="productos.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Ver Todos</a></li>
+        <li><a href="limpieza.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Limpieza</a></li>
+        
+        <li class="relative submenu-piscinas-item">
+          <a href="piscinas.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 pr-8">
+            Piscinas <i class="fas fa-caret-right absolute right-2 top-3 text-xs"></i>
+          </a>
+          <ul class="absolute hidden bg-gray-50 border border-gray-300 rounded-lg shadow-xl z-30 min-w-max left-full top-0">
+            <li><a href="piscinas.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-200 font-semibold">Accesorios y Equipamiento para Piscinas</a></li>
+            <li><a href="productos_piscinas.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-200">Productos para Piscinas</a></li>
+            <li><a href="inflables.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-200">Inflables</a></li>
+          </ul>
+        </li>
+        <li><a href="repuestos.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Repuestos</a></li>
+        <li><a href="mantenimiento.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Mantenimiento</a></li>
+      </ul>
+    </li>
+    <li><a href="contacto.html" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition font-semibold whitespace-nowrap">Contacto</a></li>
+  </ul>
+</nav>
+<div class="flex items-center space-x-3 mt-2 md:mt-0">
+<input type="text" placeholder="Buscar productos..." class="hidden sm:block px-3 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-32 md:w-40 text-sm">
+<button id="cart-button" onclick="window.location.href='carrito.html'" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-3 rounded-lg transition shadow-md flex items-center text-sm"> 🛒 Carrito (<span id="cart-count">0</span>) </button>
+</div>
+</div>
 </header>
-
-<!-- HERO PARALLAX -->
-<section id="hero" class="relative h-[500px] flex items-center justify-center text-center px-4" style="background-image:url('img/WhatsApp Image 2025-10-08 at 14.14.18.jpeg');">
-<div class="absolute inset-0 bg-blue-200/50"></div>
-<div class="relative z-10">
-  <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4 blur-text" data-delay="150">¡Bienvenido a Summer Piscinas!</h2>
-  <p class="text-lg md:text-xl text-white mb-6 blur-text" data-delay="200">Productos de limpieza, químicos y repuestos de calidad en Argentina</p>
-  <button class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold transition transform hover:scale-105 shadow-lg">Ver Productos</button>
+<section class="banner relative py-48 md:py-64" id="hero">
+<div class="absolute inset-0 bg-blue-400 opacity-60 z-0"></div>
+<div class="relative z-10 text-white">
+<h1 class="blur-text text-4xl md:text-6xl font-extrabold mb-4" data-delay="150">¡Bienvenido a Summer Piscinas!</h1>
+<p class="blur-text text-lg md:text-xl mb-8" data-delay="200">Productos de limpieza, químicos y repuestos de calidad en Argentina.</p>
+<a href="#productos" class="bg-orange-500 text-white font-bold py-3 px-8 rounded-lg shadow-xl hover:bg-orange-600 transition transform hover:scale-105 inline-block">¡Comprar Ahora!</a>
 </div>
 </section>
-
-<!-- PROMO -->
-<section id="promo" class="bg-yellow-300 text-center py-8 px-4 my-8 mx-4 rounded-lg shadow-lg relative overflow-hidden scroll-animate">
-<span class="absolute -top-10 -left-10 w-32 h-32 bg-yellow-400 rounded-full opacity-40 animate-ping"></span>
-<span class="absolute -bottom-10 -right-10 w-32 h-32 bg-yellow-400 rounded-full opacity-40 animate-ping"></span>
-<h3 class="text-2xl font-bold mb-2 z-10 relative">¡Oferta del Verano! Kit Piscina Completo por ARS 5.999</h3>
-<p class="z-10 relative">Incluye cloro, pH y filtro. Envío gratis en CABA y GBA.</p>
+<section class="bg-yellow-300 text-center p-4 md:p-6">
+<h2 class="text-xl md:text-2xl font-bold text-gray-800">¡Oferta del Verano! Kit Piscina Completo por ARS 5.999</h2>
+<p class="text-gray-700 mt-1">Incluye cloro, pH y filtro. Envío gratis en CABA y GBA.</p>
 </section>
-
-<!-- CATEGORÍAS -->
-<section id="categorias" class="container mx-auto px-4 py-12 scroll-animate">
-<h2 class="text-3xl font-bold text-center mb-8">Explorá por Categorías</h2>
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-  <div class="bg-white rounded-lg shadow hover:shadow-xl transition p-6 flex flex-col items-center relative group overflow-hidden">
-    <span class="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 text-xs rounded animate-pulse">Nuevo</span>
-    <img src="img/productoslimpieza.jpeg" alt="Productos Limpieza" class="w-32 h-32 object-cover mb-4 rounded">
-    <h3 class="font-semibold text-lg">Limpieza</h3>
-  </div>
-  <div class="bg-white rounded-lg shadow hover:shadow-xl transition p-6 flex flex-col items-center relative group overflow-hidden">
-    <span class="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 text-xs rounded animate-pulse">Oferta</span>
-    <img src="img/piscinas.jpeg" alt="Piscinas" class="w-32 h-32 object-cover mb-4 rounded">
-    <h3 class="font-semibold text-lg">Piscinas</h3>
-  </div>
-  <div class="bg-white rounded-lg shadow hover:shadow-xl transition p-6 flex flex-col items-center">
-    <img src="img/repuestos.jpeg" alt="Repuestos" class="w-32 h-32 object-cover mb-4 rounded">
-    <h3 class="font-semibold text-lg">Repuestos</h3>
-  </div>
-  <div class="bg-white rounded-lg shadow hover:shadow-xl transition p-6 flex flex-col items-center">
-    <img src="img/mantenimiento.jpeg" alt="Mantenimiento" class="w-32 h-32 object-cover mb-4 rounded">
-    <h3 class="font-semibold text-lg">Contacta tu Mantenimiento</h3>
-  </div>
-</div>
-</section>
-
-<!-- CÓMO COMPRAR -->
-<section id="como-comprar" class="bg-gray-100 py-12 scroll-animate">
+<section id="productos" class="py-16 bg-white">
 <div class="container mx-auto px-4">
-<h2 class="text-3xl font-bold text-center mb-8">Cómo Comprar</h2>
+<h3 class="text-3xl font-bold text-center mb-12 text-gray-800">Nuestros Productos Destacados</h3>
+<div class="flex flex-wrap justify-center gap-6">
+<div class="producto bg-white border border-gray-200 rounded-lg p-5 w-64 text-center shadow-lg hover:shadow-xl transition transform hover:scale-[1.02]">
+<img src="https://images.unsplash.com/photo-1558618047-3c8c76b1e9f5?w=250&h=150&fit=crop" alt="Cloro Granulado" class="w-full h-36 object-cover rounded-md mb-3">
+<h3 class="text-lg font-semibold mb-1">Cloro Granulado 5kg</h3>
+<p class="text-xl font-bold text-blue-600">ARS 2500</p>
+<button onclick="agregarAlCarrito('Cloro Granulado 5kg', 2500)" class="w-full mt-3 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">Agregar al Carrito</button>
+</div>
+<div class="producto bg-white border border-gray-200 rounded-lg p-5 w-64 text-center shadow-lg hover:shadow-xl transition transform hover:scale-[1.02]">
+<img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=250&h=150" alt="pH +" class="w-full h-36 object-cover rounded-md mb-3">
+<h3 class="text-lg font-semibold mb-1">Balancer pH + 1L</h3>
+<p class="text-xl font-bold text-blue-600">ARS 1200</p>
+<button onclick="agregarAlCarrito('Balancer pH + 1L', 1200)" class="w-full mt-3 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">Agregar al Carrito</button>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 bg-gray-100" id="testimonios">
+<div class="container mx-auto px-4">
+<h3 class="text-3xl font-bold text-center mb-12 text-gray-800">Clientes Satisfechos 💙</h3>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-  <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg text-center">
-    <h3 class="font-semibold text-xl mb-2">1. Elegí tus productos</h3>
-    <p>Explorá nuestra tienda y agregá los productos al carrito.</p>
-  </div>
-  <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg text-center">
-    <h3 class="font-semibold text-xl mb-2">2. Confirmá tu pedido</h3>
-    <p>Revisá tu carrito y completá tus datos de envío y pago.</p>
-  </div>
-  <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg text-center">
-    <h3 class="font-semibold text-xl mb-2">3. Recibí en casa</h3>
-    <p>Recibí tu pedido rápidamente en CABA y GBA.</p>
-  </div>
+<div class="bg-white p-6 rounded-lg shadow-lg border-t-4 border-blue-500">
+<p class="text-gray-600 mb-4 italic">"¡Mi piscina nunca estuvo tan cristalina! La calidad de los químicos es insuperable y el envío fue rapidísimo."</p>
+<div class="flex items-center">
+<img src="https://via.placeholder.com/50x50?text=C1" alt="Cliente 1" class="w-12 h-12 rounded-full mr-4 border-2 border-gray-200">
+<div>
+<h4 class="font-semibold text-gray-800">Florencia A.</h4>
+<span class="text-sm text-gray-500">Buenos Aires</span>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-lg border-t-4 border-green-500">
+<p class="text-gray-600 mb-4 italic">"Compré un repuesto para mi bomba y me asesoraron perfectamente. ¡Excelente atención al cliente!"</p>
+<div class="flex items-center">
+<img src="https://via.placeholder.com/50x50?text=C2" alt="Cliente 2" class="w-12 h-12 rounded-full mr-4 border-2 border-gray-200">
+<div>
+<h4 class="font-semibold text-gray-800">Roberto M.</h4>
+<span class="text-sm text-gray-500">Córdoba</span>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-lg border-t-4 border-orange-500">
+<p class="text-gray-600 mb-4 italic">"Los precios son muy competitivos y la variedad de productos es enorme. 100% recomendable."</p>
+<div class="flex items-center">
+<img src="https://via.placeholder.com/50x50?text=C3" alt="Cliente 3" class="w-12 h-12 rounded-full mr-4 border-2 border-gray-200">
+<div>
+<h4 class="font-semibold text-gray-800">Ana S.</h4>
+<span class="text-sm text-gray-500">Mendoza</span>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
-
-<!-- PRODUCTOS DESTACADOS -->
-<section id="productos-destacados" class="py-12 bg-gray-50 scroll-animate">
+<section class="py-16 bg-white" id="como-comprar">
 <div class="container mx-auto px-4">
-<h2 class="text-3xl font-bold text-center mb-8">Productos Destacados</h2>
-<div class="relative">
-  <button id="prev-prod" class="carousel-btn left-0">‹</button>
-  <button id="next-prod" class="carousel-btn right-0">›</button>
-  <div id="carousel-prod" class="flex overflow-x-hidden gap-6 scrollbar-hide">
-    <!-- Cards de productos -->
-    <div class="min-w-[200px] bg-white rounded-lg shadow hover:shadow-lg p-4 flex flex-col items-center">
-      <img src="img/piscina1.jpeg" class="w-40 h-40 object-cover mb-2 rounded" alt="Piscina 1">
-      <h4 class="font-bold">Piscina Inflable</h4>
-      <p>ARS 3.499</p>
-      <button onclick="agregarAlCarrito('Piscina Inflable', 3499)" class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 mt-2 rounded">Agregar</button>
-    </div>
-    <div class="min-w-[200px] bg-white rounded-lg shadow hover:shadow-lg p-4 flex flex-col items-center">
-      <img src="img/kitcloro.jpeg" class="w-40 h-40 object-cover mb-2 rounded" alt="Kit Cloro">
-      <h4 class="font-bold">Kit Cloro</h4>
-      <p>ARS 1.299</p>
-      <button onclick="agregarAlCarrito('Kit Cloro', 1299)" class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 mt-2 rounded">Agregar</button>
-    </div>
-    <div class="min-w-[200px] bg-white rounded-lg shadow hover:shadow-lg p-4 flex flex-col items-center">
-      <img src="img/repuesto.jpeg" class="w-40 h-40 object-cover mb-2 rounded" alt="Repuesto">
-      <h4 class="font-bold">Repuesto Filtro</h4>
-      <p>ARS 899</p>
-      <button onclick="agregarAlCarrito('Repuesto Filtro', 899)" class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 mt-2 rounded">Agregar</button>
-    </div>
-  </div>
+<h3 class="text-3xl font-bold text-center mb-12 text-gray-800">¿Cómo Comprar en Summer Piscinas? 🛍️</h3>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+<div class="p-6 bg-blue-50 rounded-lg shadow-md hover:shadow-xl transition transform hover:-translate-y-1">
+<i class="fas fa-search text-5xl text-blue-600 mb-4"></i>
+<h4 class="text-xl font-semibold mb-2">1. Elegí Productos</h4>
+<p class="text-gray-600">Navegá por nuestras categorías o usá el buscador para encontrar lo que necesitás.</p>
+</div>
+<div class="p-6 bg-blue-50 rounded-lg shadow-md hover:shadow-xl transition transform hover:-translate-y-1">
+<i class="fas fa-cart-plus text-5xl text-blue-600 mb-4"></i>
+<h4 class="text-xl font-semibold mb-2">2. Agregá al Carrito</h4>
+<p class="text-gray-600">Hacé clic en "Agregar al Carrito" en cada artículo que quieras comprar.</p>
+</div>
+<div class="p-6 bg-blue-50 rounded-lg shadow-md hover:shadow-xl transition transform hover:-translate-y-1">
+<i class="fas fa-credit-card text-5xl text-blue-600 mb-4"></i>
+<h4 class="text-xl font-semibold mb-2">3. Pagá con Mercado Pago</h4>
+<p class="text-gray-600">Finalizá la compra de forma segura con Mercado Pago y elegí tu método de envío.</p>
+</div>
+<div class="p-6 bg-blue-50 rounded-lg shadow-md hover:shadow-xl transition transform hover:-translate-y-1">
+<i class="fas fa-truck text-5xl text-blue-600 mb-4"></i>
+<h4 class="text-xl font-semibold mb-2">4. Recibí en Casa</h4>
+<p class="text-gray-600">Despachamos tu pedido con OCA y lo recibís en la comodidad de tu hogar.</p>
+</div>
 </div>
 </div>
 </section>
-
-<!-- TESTIMONIOS -->
-<section id="testimonios" class="py-12 bg-white scroll-animate">
+<footer class="bg-gray-800 text-white py-10 mt-10" id="contacto">
 <div class="container mx-auto px-4">
-<h2 class="text-3xl font-bold text-center mb-8">Testimonios</h2>
-<div class="relative">
-  <button id="prev-test" class="carousel-btn left-0">‹</button>
-  <button id="next-test" class="carousel-btn right-0">›</button>
-  <div id="carousel-test" class="flex overflow-x-hidden gap-6 scrollbar-hide">
-    <div class="min-w-[250px] bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg flex flex-col items-center">
-      <p class="mb-4 text-center">"Excelente atención y productos de calidad!"</p>
-      <h4 class="font-bold">Lucía G.</h4>
-    </div>
-    <div class="min-w-[250px] bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg flex flex-col items-center">
-      <p class="mb-4 text-center">"Muy rápido el envío y los kits completos."</p>
-      <h4 class="font-bold">Matías R.</h4>
-    </div>
-    <div class="min-w-[250px] bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg flex flex-col items-center">
-      <p class="mb-4 text-center">"Los químicos son de primera calidad, recomendado."</p>
-      <h4 class="font-bold">Aixa O.</h4>
-    </div>
-    <div class="min-w-[250px] bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg flex flex-col items-center">
-      <p class="mb-4 text-center">"Excelente experiencia de compra, volveré a comprar."</p>
-      <h4 class="font-bold">Elian O.</h4>
-    </div>
-  </div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 border-b border-gray-700 pb-6 mb-6">
+<div>
+<h4 class="text-lg font-bold mb-3 text-blue-400">Summer Piscinas</h4>
+<p class="text-sm text-gray-400">Tu fuente confiable para productos de piscina de calidad en Argentina.</p>
+</div>
+<div>
+<h4 class="text-md font-semibold mb-3">Enlaces Rápidos</h4>
+<ul class="space-y-1 text-sm">
+<li><a href="#productos" class="text-gray-400 hover:text-white transition">Productos</a></li>
+<li><a href="#testimonios" class="text-gray-400 hover:text-white transition">Testimonios</a></li>
+<li><a href="#como-comprar" class="text-gray-400 hover:text-white transition">Cómo Comprar</a></li>
+<li><a href="contacto.html" class="text-gray-400 hover:text-white transition">Contacto</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-md font-semibold mb-3">Contacto</h4>
+<p class="text-sm text-gray-400">Email: info@summerpiscinas.com</p>
+<p class="text-sm text-gray-400">Tel: +54 9 3585 615079</p>
+</div>
+<div>
+<h4 class="text-md font-semibold mb-3">Síguenos</h4>
+<div class="flex space-x-4 text-xl">
+<a href="#" class="text-gray-400 hover:text-blue-400 transition"><i class="fab fa-facebook-f"></i></a>
+<a href="#" class="text-gray-400 hover:text-blue-400 transition"><i class="fab fa-instagram"></i></a>
 </div>
 </div>
-</section>
-
-<!-- MARCAS -->
-<section id="marcas" class="container mx-auto px-4 py-12 scroll-animate">
-<h2 class="text-3xl font-bold text-center mb-8">Nuestras Marcas</h2>
-<div class="flex justify-center flex-wrap gap-6">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Vulcano_logo.svg" alt="Vulcano" class="h-16 object-contain">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Aquamatic_logo.svg" alt="Aquamatic" class="h-16 object-contain">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Cloro_logo.svg" alt="Cloro" class="h-16 object-contain">
 </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="bg-blue-600 text-white text-center py-6 mt-12">
-<p>&copy; 2025 Summer Piscinas - Argentina. Envíos con OCA y Mercado Pago.</p>
+<div class="text-center">
+<p class="text-gray-400 text-sm">&copy; 2025 Summer Piscinas - Argentina. Envíos con OCA y Mercado Pago.</p>
+</div>
+</div>
 </footer>
-
-<!-- WhatsApp flotante -->
-<a href="https://wa.me/5493585615079" target="_blank" class="fixed w-14 h-14 bottom-6 right-6 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition z-50">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="w-8 h-8">
+<a href="https://wa.me/5493585615079" target="_blank" class="whatsapp-float">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
 </a>
+<div id="toast">Producto agregado al carrito 🛒</div>
 
-<!-- Toast carrito -->
-<div id="toast" class="fixed top-5 right-5 bg-green-500 text-white px-5 py-3 rounded-lg opacity-0 -translate-y-5 transition z-50">Producto agregado al carrito 🛒</div>
-
-<!-- SCRIPTS -->
 <script>
-// Blur hero
+// 🟢 LÓGICA DE ANIMACIÓN DE TEXTO (MANTENIDA)
 document.addEventListener("DOMContentLoaded", () => {
-  const blurElements = document.querySelectorAll('.blur-text');
-  blurElements.forEach(el => {
-    const text = el.textContent;
-    const delay = parseInt(el.dataset.delay) || 200;
-    const words = text.split(" ");
-    el.textContent = "";
-    words.forEach((word, index) => {
-      const span = document.createElement("span");
-      span.textContent = word + " ";
-      el.appendChild(span);
-      setTimeout(() => {
-        span.style.filter = "blur(0)";
-        span.style.opacity = "1";
-        span.style.transform = "translateY(0)";
-      }, index * delay);
-    });
-  });
-
-  const scrollElements = document.querySelectorAll('.scroll-animate');
-  const scrollHandler = () => {
-    const triggerBottom = window.innerHeight * 0.85;
-    scrollElements.forEach(el => {
-      if(el.getBoundingClientRect().top < triggerBottom) el.classList.add('show');
-    });
-  };
-  window.addEventListener('scroll', scrollHandler);
-  scrollHandler();
+const blurElements = document.querySelectorAll('.blur-text');
+blurElements.forEach(el => {
+const text = el.textContent;
+const delay = 150;
+const words = text.split(" ");
+el.textContent = "";
+words.forEach((word, index) => {
+const span = document.createElement("span");
+span.textContent = word + " ";
+el.appendChild(span);
+setTimeout(() => {
+span.style.filter = "blur(0)";
+span.style.opacity = "1";
+span.style.transform = "translateY(0)";
+}, index * delay);
 });
-
-// Carrito
+});
+});
+// 🟢 LÓGICA DEL CARRITO Y TOAST (MANTENIDA DE TU CÓDIGO ORIGINAL)
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-const contador = document.getElementById("cart-count");
-function actualizarContador() { contador.textContent = carrito.length; }
-function mostrarToast() {
-  const toast = document.getElementById("toast");
-  toast.classList.remove("opacity-0","-translate-y-5");
-  toast.classList.add("opacity-100","translate-y-0");
-  setTimeout(()=>{
-    toast.classList.add("opacity-0","-translate-y-5");
-    toast.classList.remove("opacity-100","translate-y-0");
-  },1500);
+function actualizarContador() {
+document.getElementById("cart-count").textContent = carrito.length;
 }
-function agregarAlCarrito(nombre, precio){
-  carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-  carrito.push({nombre, precio});
-  localStorage.setItem("carrito", JSON.stringify(carrito));
-  actualizarContador();
-  mostrarToast();
+function mostrarToast() {
+const toast = document.getElementById("toast");
+toast.style.opacity = "1";
+toast.style.transform = "translateY(0)";
+setTimeout(() => {
+toast.style.opacity = "0";
+toast.style.transform = "translateY(-20px)";
+}, 1500);
+}
+function agregarAlCarrito(nombre, precio) {
+precio = Number(precio);
+carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+carrito.push({ nombre, precio });
+localStorage.setItem("carrito", JSON.stringify(carrito));
+actualizarContador();
+mostrarToast();
 }
 actualizarContador();
-
-// Carrusel productos
-const carouselProd = document.getElementById("carousel-prod");
-const nextProd = document.getElementById("next-prod");
-const prevProd = document.getElementById("prev-prod");
-const scrollAmountProd = 280;
-let autoScrollProd;
-function startAutoScrollProd(){ autoScrollProd = setInterval(()=>{ carouselProd.scrollBy({ left: scrollAmountProd, behavior: 'smooth' }); }, 3000); }
-function stopAutoScrollProd(){ clearInterval(autoScrollProd); }
-nextProd.addEventListener("click", ()=>{ stopAutoScrollProd(); carouselProd.scrollBy({ left: scrollAmountProd, behavior: 'smooth' }); startAutoScrollProd(); });
-prevProd.addEventListener("click", ()=>{ stopAutoScrollProd(); carouselProd.scrollBy({ left: -scrollAmountProd, behavior: 'smooth' }); startAutoScrollProd(); });
-carouselProd.addEventListener("mouseenter", stopAutoScrollProd);
-carouselProd.addEventListener("mouseleave", startAutoScrollProd);
-startAutoScrollProd();
-
-// Carrusel testimonios
-const carouselTest = document.getElementById("carousel-test");
-const nextTest = document.getElementById("next-test");
-const prevTest = document.getElementById("prev-test");
-const scrollAmountTest = 280;
-let autoScrollTest;
-function startAutoScrollTest(){ autoScrollTest = setInterval(()=>{ carouselTest.scrollBy({ left: scrollAmountTest, behavior: 'smooth' }); }, 4000); }
-function stopAutoScrollTest(){ clearInterval(autoScrollTest); }
-nextTest.addEventListener("click", ()=>{ stopAutoScrollTest(); carouselTest.scrollBy({ left: scrollAmountTest, behavior: 'smooth' }); startAutoScrollTest(); });
-prevTest.addEventListener("click", ()=>{ stopAutoScrollTest(); carouselTest.scrollBy({ left: -scrollAmountTest, behavior: 'smooth' }); startAutoScrollTest(); });
-carouselTest.addEventListener("mouseenter", stopAutoScrollTest);
-carouselTest.addEventListener("mouseleave", startAutoScrollTest);
-startAutoScrollTest();
-
-// Dropdown escritorio animación
-const productsBtn = document.getElementById('products-btn');
-const productsDropdown = document.getElementById('products-dropdown');
-productsBtn.addEventListener('mouseenter', () => { productsDropdown.classList.add('show'); });
-productsBtn.addEventListener('mouseleave', () => { productsDropdown.classList.remove('show'); });
-productsDropdown.addEventListener('mouseenter', () => { productsDropdown.classList.add('show'); });
-productsDropdown.addEventListener('mouseleave', () => { productsDropdown.classList.remove('show'); });
-
-// Toggle menú móvil
-const menuBtn = document.getElementById('menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
-
-// Toggle dropdown móvil
-function toggleDropdown(id) { document.getElementById(id).classList.toggle('hidden'); }
-
-// Cerrar menú móvil al hacer click en un enlace
-document.querySelectorAll('#mobile-menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    mobileMenu.classList.add('hidden');
-    document.getElementById('mobile-products').classList.add('hidden');
-  });
-});
 </script>
-
 </body>
 </html>
