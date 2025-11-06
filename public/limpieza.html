@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Limpieza - Summer Piscinas</title>
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    /* Estilo del botón Volver al Inicio con animación */
+    .volver-btn {
+      display: inline-block;
+      margin: 30px auto;
+      background: linear-gradient(45deg, #00bfff, #007bff);
+      color: white;
+      font-weight: bold;
+      padding: 12px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.1em;
+      animation: saltar 2s infinite ease-in-out;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+      cursor: pointer;
+    }
+
+    .volver-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 25px rgba(0, 191, 255, 0.8);
+    }
+
+    @keyframes saltar {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h2>Summer Piscinas</h2>
+  <nav>
+    <ul>
+      <li class="dropdown">
+        <a href="#">Productos ▼</a>
+        <ul class="dropdown-content">
+          <li><a href="productos.html">Ver Todos</a></li>
+          <li><a href="limpieza.html">Limpieza</a></li>
+          <li><a href="piscinas.html">Piscinas</a></li>
+          <li><a href="repuestos.html">Repuestos</a></li>
+          <li><a href="mantenimiento.html">Mantenimiento</a></li>
+        </ul>
+      </li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+  <button id="cart-button">🛒 Carrito (<span id="cart-count">0</span>)</button>
+</header>
+
+<section class="banner">
+  <h1>Productos de Limpieza</h1>
+  <p>Todo lo que necesitás para mantener tu piscina limpia y cristalina.</p>
+</section>
+
+<section class="productos">
+  <div class="producto">
+    <img src="https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?w=250&h=150" alt="Cepillo">
+    <h3>Cepillo de Pared 45cm</h3>
+    <p>ARS 2.000</p>
+    <button>Agregar al Carrito</button>
+  </div>
+  <div class="producto">
+    <img src="https://images.unsplash.com/photo-1580910051074-3af6e7dc8b1a?w=250&h=150" alt="Red recoge hojas">
+    <h3>Red Recoge Hojas</h3>
+    <p>ARS 1.500</p>
+    <button>Agregar al Carrito</button>
+  </div>
+
+  <!-- Botón Volver al Inicio -->
+  <div style="text-align:center; width:100%; margin-top:30px;">
+    <button class="volver-btn" onclick="window.location.href='index.html'">⬅ Volver al Inicio</button>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2023 Summer Piscinas - Argentina.</p>
+</footer>
+</body>
+</html>
+

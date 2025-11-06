@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Summer Piscinas</title>
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    /* Estilo del botón Volver al Inicio con animación */
+    .volver-btn {
+      display: inline-block;
+      margin: 30px auto;
+      background: linear-gradient(45deg, #00bfff, #007bff);
+      color: white;
+      font-weight: bold;
+      padding: 12px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.1em;
+      animation: saltar 2s infinite ease-in-out;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+      cursor: pointer;
+    }
+
+    .volver-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 25px rgba(0, 191, 255, 0.8);
+    }
+
+    @keyframes saltar {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+        <h2>Summer Piscinas</h2>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="#">Productos ▼</a>
+                    <ul class="dropdown-content">
+                        <li><a href="productos.html">Ver Todos</a></li>
+                        <li><a href="limpieza.html">Limpieza</a></li>
+                        <li><a href="piscinas.html">Piscinas</a></li>
+                        <li><a href="repuestos.html">Repuestos</a></li>
+                    </ul>
+                </li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <button id="cart-button">🛒 Carrito (<span id="cart-count">0</span>)</button>
+    </header>
+
+  <section class="banner">
+    <h1>Contacto</h1>
+    <p>Comunicate con nosotros para pedidos o consultas.</p>
+  </section>
+
+  <section class="promo">
+    <h2>📍 Dirección:</h2>
+    <p>Maipú 990, Río Cuarto, Córdoba, Argentina</p>
+    <h2>📞 Teléfono / WhatsApp:</h2>
+    <p>358-5615079</p>
+    <h2>📧 Correo:</h2>
+    <p>summerpiscinas@gmail.com</p>
+     <!-- Botón Volver al Inicio -->
+  <div style="text-align:center; width:100%; margin-top:30px;">
+    <button class="volver-btn" onclick="window.location.href='index.html'">⬅ Volver al Inicio</button>
+  </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2023 Summer Piscinas - Argentina.</p>
+  </footer>
+</body>
+</html>
+
