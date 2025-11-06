@@ -82,5 +82,55 @@
   <footer>
     <p>&copy; 2023 Summer Piscinas - Argentina.</p>
   </footer>
+
+  <!-- Mensaje flotante -->
+  <div id="toast">Producto agregado al carrito 🛒</div>
+  
+   <script>
+  // 🛒 Carrito
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+  function actualizarContador() {
+    document.getElementById("cart-count").textContent = carrito.length;
+  }
+
+  function mostrarToast() {
+    const toast = document.getElementById("toast");
+    if (toast) {
+      toast.style.opacity = "1";
+      toast.style.transform = "translateY(0)";
+      setTimeout(() => {
+        toast.style.opacity = "0";
+        toast.style.transform = "translateY(-20px)";
+      }, 1500);
+    }
+  }
+
+  function agregarAlCarrito(nombre, precio) {
+    precio = Number(precio);
+    carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    carrito.push({ nombre, precio });
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    actualizarContador();
+    mostrarToast();
+  }
+
+  // 👉 Evento para abrir la página del carrito
+  document.getElementById("cart-button").addEventListener("click", () => {
+    window.location.href = "carrito.html";
+  });
+
+  // 👉 Asigna evento "Agregar al carrito" a cada botón de producto
+  document.querySelectorAll(".producto button").forEach(boton => {
+    boton.addEventListener("click", () => {
+      const producto = boton.parentElement;
+      const nombre = producto.querySelector("h3").textContent;
+      const precioTexto = producto.querySelector("p").textContent.replace(/[^\d.]/g, "");
+      agregarAlCarrito(nombre, precioTexto);
+    });
+  });
+
+  actualizarContador();
+</script>
 </body>
 </html>

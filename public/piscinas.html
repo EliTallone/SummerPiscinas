@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Piscinas - Summer Piscinas</title>
   <link rel="stylesheet" href="estilos.css">
-  <style>
-    /* Estilo del botón Volver al Inicio con animación */
+ <style>
+  /* Estilo del botón Volver al Inicio con animación */
     .volver-btn {
       display: inline-block;
       margin: 30px auto;
@@ -32,28 +32,34 @@
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
     }
-  </style>
+    .producto img {
+  width: 100%;
+  height: 150px;         /* o el alto que prefieras */
+  object-fit: contain;   /* evita que se corte */
+}
+</style>
+
 </head>
 <body>
   <header>
-        <h2>Summer Piscinas</h2>
-        <nav>
-            <ul>
-                <li class="dropdown">
-                    <a href="#">Productos ▼</a>
-                    <ul class="dropdown-content">
-                        <li><a href="productos.html">Ver Todos</a></li>
-                        <li><a href="limpieza.html">Limpieza</a></li>
-                        <li><a href="piscinas.html">Piscinas</a></li>
-                        <li><a href="repuestos.html">Repuestos</a></li>
-                        <li><a href="mantenimiento.html">Mantenimiento</a></li>
-                    </ul>
-                </li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-        <button id="cart-button">🛒 Carrito (<span id="cart-count">0</span>)</button>
-    </header>
+    <h2>Summer Piscinas</h2>
+    <nav>
+      <ul>
+        <li class="dropdown">
+          <a href="#">Productos ▼</a>
+          <ul class="dropdown-content">
+            <li><a href="productos.html">Ver Todos</a></li>
+            <li><a href="limpieza.html">Limpieza</a></li>
+            <li><a href="piscinas.html">Piscinas</a></li>
+            <li><a href="repuestos.html">Repuestos</a></li>
+            <li><a href="mantenimiento.html">Mantenimiento</a></li>
+          </ul>
+        </li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+    <button id="cart-button">🛒 Carrito (<span id="cart-count">0</span>)</button>
+  </header>
 
   <section class="banner">
     <h1>Piscinas</h1>
@@ -62,26 +68,192 @@
 
   <section class="productos">
     <div class="producto">
-      <img src="https://images.unsplash.com/photo-1562777717-dc6984f65a63?w=250&h=150" alt="Piscina estructural">
-      <h3>Piscina Estructural 3x2m</h3>
-      <p>ARS 120.000</p>
+      <img src="img/bomba1.webp" alt="Bomba Vulcano BAE 075 HP">
+      <h3>Bomba Vulcano BAE 0.75HP</h3>
+      <p>ARS $406.000</p>
       <button>Agregar al Carrito</button>
     </div>
+
     <div class="producto">
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=250&h=150" alt="Piscina inflable">
-      <h3>Piscina Inflable Familiar</h3>
-      <p>ARS 45.000</p>
+      <img src="img/bomba2.webp" alt="Bomba Vulcano 1HP">
+      <h3>Bomba Vulcano BAP 1HP</h3>
+      <p>ARS $475.000</p>
       <button>Agregar al Carrito</button>
     </div>
-     <!-- Botón Volver al Inicio -->
-  <div style="text-align:center; width:100%; margin-top:30px;">
-    <button class="volver-btn" onclick="window.location.href='index.html'">⬅ Volver al Inicio</button>
-  </div>
+
+    <div class="producto">
+      <img src="img/bomba3.webp" alt="Bomba Vulcano BAP 075HP">
+      <h3>Bomba Vulcano BAP 0.75HP</h3>
+      <p>ARS $277.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/filtroVC10.webp" alt="Filtro Vulcano VC10">
+      <h3>Filtro Vulcano VC10</h3>
+      <p>ARS $145.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/filtroVC20.webp" alt="Filtro Vulcano VC20">
+      <h3>Filtro Vulcano VC20</h3>
+      <p>ARS $145.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/filtroVC30.webp" alt="Filtro Vulcano VC30">
+      <h3>Filtro Vulcano VC30</h3>
+      <p>ARS $240.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/filtroVC50.webp" alt="Filtro Vulcano VC50">
+      <h3>Filtro Vulcano VC50</h3>
+      <p>ARS $271.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/barrefondoAlu.webp" alt="Barrefondo Aluminio">
+      <h3>Barrefondo Aluminio Vulcano</h3>
+      <p>ARS $90.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/barrefondoTriangular.webp" alt="Barrefondo Triangular">
+      <h3>Barrefondo Triangular Vulcano</h3>
+      <p>ARS $24.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/barrefondo8ruedas.webp" alt="Barrefondo 8 ruedas">
+      <h3>Barrefondo 8 ruedas Vulcano</h3>
+      <p>ARS $30.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/barrefondoMedialuna.webp" alt="Barrefondo Media luna">
+      <h3>Barrefondo Media Luna Vulcano</h3>
+      <p>ARS $24.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/mango360.webp" alt="Mango 3,60MTS">
+      <h3>Mango Telescópico Vulcano 3,60 MTS</h3>
+      <p>ARS $50.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/venturi.webp" alt="Barrefondo Venturi">
+      <h3>Barrefondo Venturi Vulcano para piletas de lona</h3>
+      <p>ARS $35.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/sacahojas1.webp" alt="Saca hojas bolsa grande">
+      <h3>Saca hojas bolsa grande Vulcano 32MM</h3>
+      <p>ARS $20.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/sacahojas2.webp" alt="Saca hojas plano">
+      <h3>Saca hojas plano Vulcano 32MM</h3>
+      <p>ARS $10.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/sacahojas3.webp" alt="Saca hojas bolsa y pala">
+      <h3>Saca hojas con bolsa y pala Vulcano 32MM</h3>
+      <p>ARS $23.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/manguera1.webp" alt="Manguera Vulcano">
+      <h3>Manguera Bicolor 1 1/2 Vulcano</h3>
+      <p>ARS $4.700 x mentro</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/skimmer.webp" alt="Skimmer Vulcano">
+      <h3>Skimmer Vulcano Boca Chica Para Piscinas De Hormigón</h3>
+      <p>ARS $67.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <!-- Botón Volver al Inicio -->
+    <div style="text-align:center; width:100%; margin-top:30px;">
+      <button class="volver-btn" onclick="window.location.href='index.html'">⬅ Volver al Inicio</button>
+    </div>
   </section>
 
   <footer>
     <p>&copy; 2023 Summer Piscinas - Argentina.</p>
   </footer>
+
+  <!-- Mensaje flotante -->
+  <div id="toast">Producto agregado al carrito 🛒</div>
+
+  <script>
+  // 🛒 Carrito
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+  function actualizarContador() {
+    document.getElementById("cart-count").textContent = carrito.length;
+  }
+
+  function mostrarToast() {
+    const toast = document.getElementById("toast");
+    if (toast) {
+      toast.style.opacity = "1";
+      toast.style.transform = "translateY(0)";
+      setTimeout(() => {
+        toast.style.opacity = "0";
+        toast.style.transform = "translateY(-20px)";
+      }, 1500);
+    }
+  }
+
+  function agregarAlCarrito(nombre, precio) {
+    precio = Number(precio);
+    carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    carrito.push({ nombre, precio });
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    actualizarContador();
+    mostrarToast();
+  }
+
+  // 👉 Evento para abrir la página del carrito
+  document.getElementById("cart-button").addEventListener("click", () => {
+    window.location.href = "carrito.html";
+  });
+
+  // 👉 Asigna evento "Agregar al carrito" a cada botón de producto
+  document.querySelectorAll(".producto button").forEach(boton => {
+    boton.addEventListener("click", () => {
+      const producto = boton.parentElement;
+      const nombre = producto.querySelector("h3").textContent;
+      const precioTexto = producto.querySelector("p").textContent.replace(/[^\d.]/g, "");
+      agregarAlCarrito(nombre, precioTexto);
+    });
+  });
+
+  actualizarContador();
+</script>
+
 </body>
 </html>
+
 
