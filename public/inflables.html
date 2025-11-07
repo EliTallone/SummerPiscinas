@@ -1,355 +1,341 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="estilos.css">
-    <title>Summer Piscinas - Inflables y Juguetes para Pileta</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet"/>
-    <style>
-       /* --- ANIMACIÓN DE VOLVER (MANTENIDA) --- */
-    .volver-btn {
-      display: inline-block;
-      background: linear-gradient(45deg, #00bfff, #007bff);
-      color: white;
-      font-weight: bold;
-      padding: 12px 25px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-size: 1.1em;
-      animation: saltar 2s infinite ease-in-out;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-      box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
-      cursor: pointer;
-    }
+<!DOCTYPE html> 
+ <html lang="es"> 
+ <head> 
+   <meta charset="UTF-8"> 
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+   <title>Limpieza - Summer Piscinas</title> 
+   <script src="https://cdn.tailwindcss.com"></script> 
+   <link rel="stylesheet" href="estilos.css"> 
+   <style> 
 
-    .volver-btn:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 25px rgba(0, 191, 255, 0.8);
-    }
+         /* --- ANIMACIÓN DE VOLVER --- */ 
+     .volver-btn { 
+       display: inline-block; 
+       background: linear-gradient(45deg, #00bfff, #007bff); 
+       color: white; 
+       font-weight: bold; 
+       padding: 12px 25px; 
+       border-radius: 50px; 
+       text-decoration: none; 
+       font-size: 1.1em; 
+       animation: saltar 2s infinite ease-in-out; 
+       transition: box-shadow 0.3s ease, transform 0.3s ease; 
+       box-shadow: 0 0 15px rgba(0, 191, 255, 0.5); 
+       cursor: pointer; 
+     } 
 
-    @keyframes saltar {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
+     .volver-btn:hover { 
+       transform: scale(1.08); 
+       box-shadow: 0 0 25px rgba(0, 191, 255, 0.8); 
+     } 
 
-    /* 🟢 ESTILO PARA FIJAR EL BOTÓN (BOTÓN DE VOLVER) */
-    #volver-fijo {
-        position: fixed;
-        bottom: 20px; 
-        right: 20px; 
-        z-index: 999;
-        margin: 0;
-    }
+     @keyframes saltar { 
+       0%, 100% { transform: translateY(0); } 
+       50% { transform: translateY(-10px); } 
+     } 
 
-    /* Estilos CSS del HEAD y Corrección del Submenú (Mantenidos) */
-    body { font-family: "Poppins", sans-serif; overflow-x: hidden; scroll-behavior: smooth; background-color: #f8f8f8; }
-    .submenu-piscinas-item:hover > ul { display: block !important; }
+     /* 🟢 ESTILO PARA FIJAR EL BOTÓN (BOTÓN DE VOLVER) */ 
+     #volver-fijo { 
+         position: fixed; 
+         bottom: 20px;  
+         right: 20px;  
+         z-index: 999; 
+         margin: 0; 
+     } 
 
-    /* ✅ ESTILOS DE IMAGEN PARA CONSISTENCIA EN LA GRILLA */
-    .producto img {
-        width: 100%;
-        height: 120px; /* Alto más pequeño para que entren 6 en la fila */
-        object-fit: contain;
-        transition: transform 0.3s ease;
-    }
-    .producto:hover img {
-        transform: scale(1.05);
-    }
+         /* Estilos CSS del HEAD y Corrección del Submenú */ 
+         body { font-family: "Poppins", sans-serif; overflow-x: hidden; scroll-behavior: smooth; background-color: #f8f8f8; } 
+          
+         /* Regla para asegurar el funcionamiento del sub-submenú */ 
+         .submenu-piscinas-item:hover > ul { 
+             display: block !important;  
+         } 
+         .producto img { 
+   width: 100%; 
+   height: 150px;         /* o el alto que prefieras */ 
+   object-fit: contain;   /* evita que se corte */ 
+ } 
+     </style> 
+ </head> 
+ <body> 
+ <header class="bg-white shadow-lg sticky top-0 z-50"> 
+ <div class="container mx-auto px-4 py-3 flex flex-wrap justify-between items-center"> 
+ <div class="flex items-center space-x-3"> 
 
-    /* Estilos del Toast */
-    #toast {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background-color: #28a745;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      opacity: 0;
-      transform: translateY(-20px);
-      transition: all 0.3s ease;
-      z-index: 1000;
-    }
-    </style>
-</head>
-<body class="bg-gray-50 text-gray-900">
+ <img src="img/WhatsApp Image 2025-10-08 at 14.14.18.jpeg" alt="Logo 
+Summer Piscinas" class="h-12 w-12 object-cover rounded-full"> 
+ <h2 class="text-xl font-extrabold text-blue-600">Summer Piscinas</h2> 
+ </div> 
+ <nav class="mt-2 md:mt-0"> 
+   <ul class="flex flex-wrap justify-center space-x-1 md:space-x-2"> 
+     <li class="relative group"> 
 
-<header class="bg-white shadow-lg sticky top-0 z-50">
-  <div class="container mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
-    <div class="flex items-center space-x-3">
-      <img src="img/WhatsApp Image 2025-10-08 at 14.14.18.jpeg" alt="Logo Summer Piscinas" class="h-12 w-12 object-cover rounded-full">
-      <h2 class="text-xl font-extrabold text-blue-600">Summer Piscinas</h2>
-    </div>
+       <a href="#" class="block px-3 py-2 text-gray-700 
+hover:bg-blue-50 hover:text-blue-600 rounded transition font-semibold 
+whitespace-nowrap">Productos ▼</a> 
+       <ul class="absolute hidden group-hover:block bg-white border border-gray-200 rounded-lg shadow-xl z-10 min-w-max"> 
 
-    <nav class="mt-2 md:mt-0">
-      <ul class="flex flex-wrap justify-center space-x-1 md:space-x-2">
-        <li class="relative group">
-          <a href="#" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition font-semibold whitespace-nowrap">Productos ▼</a>
-          <ul class="absolute hidden group-hover:block bg-white border border-gray-200 rounded-lg shadow-xl z-10 min-w-max">
-            <li><a href="productos.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Ver Todos</a></li>
-            <li><a href="limpieza.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Limpieza</a></li>
-            <li><a href="calculador-quimicos.html" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition font-semibold whitespace-nowrap">Calculador </a></li>
-            <li class="relative submenu-piscinas-item">
-              <a href="piscinas.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 pr-8">
-                Piscinas <i class="fas fa-caret-right absolute right-2 top-3 text-xs"></i>
-              </a>
-              <ul class="absolute hidden bg-gray-50 border border-gray-300 rounded-lg shadow-xl z-30 min-w-max left-full top-0">
-                <li><a href="piscinas.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-200 font-semibold">Accesorios y Equipamiento para Piscinas</a></li>
-                <li><a href="productos_piscinas.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-200">Productos para Piscinas</a></li>
-                <li><a href="inflables.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-200">Inflables</a></li>
-              </ul>
-            </li>
-            <li><a href="repuestos.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Repuestos</a></li>
-            <li><a href="mantenimiento.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Mantenimiento</a></li>
-          </ul>
-        </li>
-        <li><a href="contacto.html" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition font-semibold whitespace-nowrap">Contacto</a></li>
-      </ul>
-    </nav>
+         <li><a href="productos.html" class="block px-4 py-2 
+text-gray-700 hover:bg-blue-100">Ver Todos</a></li> 
 
-    <div class="flex items-center space-x-3 mt-2 md:mt-0">
-      <input type="text" placeholder="Buscar productos..." class="hidden sm:block px-3 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-32 md:w-40 text-sm">
-      <button id="cart-button" onclick="window.location.href='carrito.html'" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-3 rounded-lg transition shadow-md flex items-center text-sm"> 🛒 Carrito (<span id="cart-count">0</span>) </button>
-    </div>
-  </div>
-</header>
+         <li><a href="limpieza.html" class="block px-4 py-2 
+text-gray-700 hover:bg-blue-100">Limpieza</a></li> 
 
-<main class="container mx-auto px-4 py-12">
-  <h1 class="text-4xl font-extrabold text-center text-blue-700 mb-4"> Inflables y Diversión para tu Pileta</h1>
-  <p class="text-xl text-center text-gray-600 mb-12">Colchones, flotadores y juegos para disfrutar al máximo el verano en Argentina.</p>
+         <li><a href="calculador-quimicos.html" class="block 
+px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded 
+transition font-semibold whitespace-nowrap">Calculador 
+</a></li> 
+         <li class="relative submenu-piscinas-item"> 
+           <a href="piscinas.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 pr-8"> 
+             Piscinas <i class="fas fa-caret-right absolute right-2 top-3 text-xs"></i> 
+           </a> 
 
-  <div class="flex justify-center flex-wrap space-x-4 mb-10">
-    <button class="filtro px-4 py-2 bg-blue-600 text-white rounded-full text-sm hover:bg-blue-700 transition mb-2" data-filter="todos">Todos</button>
-    <button class="filtro px-4 py-2 bg-white text-gray-700 border border-gray-300 rounded-full text-sm hover:bg-gray-100 transition mb-2" data-filter="flotadores">Flotadores Gigantes</button>
-    <button class="filtro px-4 py-2 bg-white text-gray-700 border border-gray-300 rounded-full text-sm hover:bg-gray-100 transition mb-2" data-filter="juegos">Juegos Acuáticos</button>
-  </div>
+           <ul class="absolute hidden bg-gray-50 border 
+border-gray-300 rounded-lg shadow-xl z-30 min-w-max left-full top-0">
+ 
 
-  <div id="productos-container" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+             <li><a href="piscinas.html" class="block px-4 py-2
+ text-gray-700 hover:bg-blue-200 font-semibold">Accesorios y 
+Equipamiento para Piscinas</a></li> 
 
-    <div class="producto bg-white rounded-xl shadow-md overflow-hidden p-3 hover:shadow-xl transition duration-300" data-categoria="flotadores">
-      <img src="img/colchonetatransparente.jpg" alt="Colchoneta inflable pileta" class="mb-3">
-      <div class="p-1 text-center">
-        <h3 class="text-sm font-semibold text-gray-800 mb-1">Colchoneta inflable pileta con almohada Bestway</h3>
-        <p class="text-xs text-gray-500 mb-2">188 x 71 cm, vinilo resistente.</p>
-        <p class="text-lg font-extrabold text-orange-600 mb-3">ARS 28.700</p>
-        <button onclick="agregarAlCarrito('Colchoneta inflable pileta', 28700)" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-semibold text-sm">Añadir al Carrito</button>
-      </div>
-    </div>
+             <li><a href="productos_piscinas.html" class="block
+ px-4 py-2 text-gray-700 hover:bg-blue-200">Productos para 
+Piscinas</a></li> 
 
-    <div class="producto bg-white rounded-xl shadow-md overflow-hidden p-3 hover:shadow-xl transition duration-300" data-categoria="flotadores">
-      <img src="img/camainlfable.jpg" alt="Colchoneta Flotador Inflable" class="mb-3">
-      <div class="p-1 text-center">
-        <h3 class="text-sm font-semibold text-gray-800 mb-1">Colchoneta Flotador Inflable Bestway</h3>
-        <p class="text-xs text-gray-500 mb-2">161 x 84 cm, soporta 100 kg.</p>
-        <p class="text-lg font-extrabold text-orange-600 mb-3">ARS 34.990</p>
-        <button onclick="agregarAlCarrito('Colchoneta Flotador Inflable', 34990)" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-semibold text-sm">Añadir al Carrito</button>
-      </div>
-    </div>
+             <li><a href="inflables.html" class="block px-4 
+py-2 text-gray-700 hover:bg-blue-200">Inflables</a></li> 
+           </ul> 
+         </li> 
 
-    <div class="producto bg-white rounded-xl shadow-md overflow-hidden p-3 hover:shadow-xl transition duration-300" data-categoria="flotadores">
-      <img src="img/arcoypelota.jpg" alt="Inflable Arco y Pelota" class="mb-3">
-      <div class="p-1 text-center">
-        <h3 class="text-sm font-semibold text-gray-800 mb-1">Inflable Arco Y Pelota Juego Pileta</h3>
-        <p class="text-xs text-gray-500 mb-2">76 x 142 cm, PVC, +3 años.</p>
-        <p class="text-lg font-extrabold text-orange-600 mb-3">ARS 20.390</p>
-        <button onclick="agregarAlCarrito('Inflable Arco Y Pelota', 20390)" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-semibold text-sm">Añadir al Carrito</button>
-      </div>
-    </div>
+         <li><a href="repuestos.html" class="block px-4 py-2 
+text-gray-700 hover:bg-blue-100">Repuestos</a></li> 
 
-    <div class="producto bg-white rounded-xl shadow-md overflow-hidden p-3 hover:shadow-xl transition duration-300" data-categoria="flotadores">
-      <img src="img/dona.jpg" alt="Inflable Dona" class="mb-3">
-      <div class="p-1 text-center">
-        <h3 class="text-sm font-semibold text-gray-800 mb-1">Inflable Dona Salvavidas</h3>
-        <p class="text-xs text-gray-500 mb-2">60 cm de diámetro, PVC.</p>
-        <p class="text-lg font-extrabold text-orange-600 mb-3">ARS 7.699</p>
-        <button onclick="agregarAlCarrito('Inflable Dona', 7699)" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-semibold text-sm">Añadir al Carrito</button>
-      </div>
-    </div>
+         <li><a href="mantenimiento.html" class="block px-4 
+py-2 text-gray-700 
+hover:bg-blue-100">Mantenimiento</a></li> 
+       </ul> 
+     </li> 
 
-    <div class="producto bg-white rounded-xl shadow-md overflow-hidden p-3 hover:shadow-xl transition duration-300" data-categoria="flotadores">
-      <img src="img/colchoneta2.jpg" alt="Colchoneta Inflable Doble" class="mb-3">
-      <div class="p-1 text-center">
-        <h3 class="text-sm font-semibold text-gray-800 mb-1">Colchoneta Inflable Doble Bestway</h3>
-        <p class="text-xs text-gray-500 mb-2">1.33 x 1.73 m.</p>
-        <p class="text-lg font-extrabold text-orange-600 mb-3">ARS 53.967</p>
-        <button onclick="agregarAlCarrito('Colchoneta Inflable Doble', 53967)" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-semibold text-sm">Añadir al Carrito</button>
-      </div>
-    </div>
+     <li><a href="contacto.html" class="block px-3 py-2 
+text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition 
+font-semibold whitespace-nowrap">Contacto</a></li> 
+   </ul> 
+ </nav> 
+ <div class="flex items-center space-x-3 mt-2 md:mt-0"> 
 
-    <div class="producto bg-white rounded-xl shadow-md overflow-hidden p-3 hover:shadow-xl transition duration-300" data-categoria="flotadores">
-      <img src="img/redvoley.jpg" alt="Juego Red de Voley Pileta" class="mb-3">
-      <div class="p-1 text-center">
-        <h3 class="text-sm font-semibold text-gray-800 mb-1">Juego Pileta Red De Voley Pelota</h3>
-        <p class="text-xs text-gray-500 mb-2">165 x 80 cm, PVC resistente.</p>
-        <p class="text-lg font-extrabold text-orange-600 mb-3">ARS 61.900</p>
-        <button onclick="agregarAlCarrito('Juego Pileta Red De Voley', 61900)" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-semibold text-sm">Añadir al Carrito</button>
-      </div>
-    </div>
+ <input type="text" placeholder="Buscar productos..." class="hidden 
+sm:block px-3 py-1 border border-gray-300 rounded-lg focus:outline-none 
+focus:ring-2 focus:ring-blue-500 w-32 md:w-40 text-sm"> 
 
-    <div class="producto bg-white rounded-xl shadow-md overflow-hidden p-3 hover:shadow-xl transition duration-300" data-categoria="juegos">
-      <img src="img/inlfableazul.jpg" alt="Asiento Baby Filtro UV" class="mb-3">
-      <div class="p-1 text-center">
-        <h3 class="text-sm font-semibold text-gray-800 mb-1">Asiento Baby Filtro UV Bestway</h3>
-        <p class="text-xs text-gray-500 mb-2">Vinilo, diámetro 1.02 m.</p>
-        <p class="text-lg font-extrabold text-orange-600 mb-3">ARS 18.700</p>
-        <button onclick="agregarAlCarrito('Asiento Baby Filtro UV', 18700)" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-semibold text-sm">Añadir al Carrito</button>
-      </div>
-    </div>
+ <button id="cart-button" 
+onclick="window.location.href='carrito.html'" class="bg-green-500 
+hover:bg-green-600 text-white font-bold py-2 px-3 rounded-lg transition 
+shadow-md flex items-center text-sm"> 🛒 Carrito (<span 
+id="cart-count">0</span>) </button> 
+ </div> 
+ </div> 
+ </header> 
 
-    <div class="producto bg-white rounded-xl shadow-md overflow-hidden p-3 hover:shadow-xl transition duration-300" data-categoria="juegos">
-      <img src="img/brazosbebe.jpg" alt="Flotador Piletero Bebé" class="mb-3">
-      <div class="p-1 text-center">
-        <h3 class="text-sm font-semibold text-gray-800 mb-1">Flotador Piletero C Bracitos P Niños Bebe</h3>
-        <p class="text-xs text-gray-500 mb-2">Chaleco de poliéster, +2 años.</p>
-        <p class="text-lg font-extrabold text-orange-600 mb-3">ARS 25.990</p>
-        <button onclick="agregarAlCarrito('Flotador Piletero Bebé', 25990)" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-semibold text-sm">Añadir al Carrito</button>
-      </div>
-    </div>
+ <section class="banner"> 
+   <h1>Inflables y Diversión para tu Pileta</h1>
+   <p>Colchones, flotadores y juegos para disfrutar al máximo el verano en Argentina.</p>
+ </section> 
+ <section class="productos"> 
+   <div class="producto">
+                <img src="img/inflabletucan.jpg" alt="Inflable tucán">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Inflable Flotador Colchoneta Tucán Gigante Bestway</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $44.203</p>
+                <button onclick="agregarAlCarrito('Cloro en pastillas 10kg', 130000)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
+            </div>
 
-    <div class="producto bg-white rounded-xl shadow-md overflow-hidden p-3 hover:shadow-xl transition duration-300" data-categoria="juegos">
-      <img src="img/flotadorredondo.jpg" alt="Dona Inflable Sunclub" class="mb-3">
-      <div class="p-1 text-center">
-        <h3 class="text-sm font-semibold text-gray-800 mb-1">Dona Inflable Sunclub Para Pileta</h3>
-        <p class="text-xs text-gray-500 mb-2">55 cm de diámetro, edad 5-7 años.</p>
-        <p class="text-lg font-extrabold text-orange-600 mb-3">ARS 7.800</p>
-        <button onclick="agregarAlCarrito('Dona Inflable Sunclub', 7800)" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-semibold text-sm">Añadir al Carrito</button>
-      </div>
-    </div>
+            <div class="producto">
+                <img src="img/colchonetatransparente.jpg" alt="Colchoneta inflable pileta">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Colchoneta inflable pileta con almohada Bestway</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $28.700</p>
+                <button onclick="agregarAlCarrito('Clarificador Nataclor 1lt', 8500)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
+            </div>
 
-    <div class="producto bg-white rounded-xl shadow-md overflow-hidden p-3 hover:shadow-xl transition duration-300" data-categoria="juegos">
-      <img src="img/flotaflota.jpg" alt="Flota flota" class="mb-3">
-      <div class="p-1 text-center">
-        <h3 class="text-sm font-semibold text-gray-800 mb-1">Flota flota 1,60 mts</h3>
-         <p class="text-xs text-gray-500 mb-2">Flotador cilíndrico de 1,60 mts de longitud.</p>
-        <p class="text-lg font-extrabold text-orange-600 mb-3">ARS $2.300 c/u</p>
-        <button onclick="agregarAlCarrito('Dona Inflable Sunclub', 7800)" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-semibold text-sm">Añadir al Carrito</button>
-      </div>
-    </div>
+            <div class="producto">
+                <img src="img/camainlfable.jpg" alt="Colchoneta Flotador Inflable">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Colchoneta Flotador Inflable Bestway</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $34.990</p>
+                <button onclick="agregarAlCarrito('Cloro granulado 1kg', 10700)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
+            </div>
 
-    <div class="producto bg-white rounded-xl shadow-md overflow-hidden p-3 hover:shadow-xl transition duration-300" data-categoria="juegos">
-      <img src="img/rueda.webp" alt="Inflable rueda" class="mb-3">
-      <div class="p-1 text-center">
-        <h3 class="text-sm font-semibold text-gray-800 mb-1">Bestway Flotador Rueda Mud Master</h3>
-        <p class="text-xs text-gray-500 mb-2">Diámetro de 91 cm, perfecto para una experiencia cómoda en el agua.</p>
-        <p class="text-lg font-extrabold text-orange-600 mb-3">ARS 7.800</p>
-        <button onclick="agregarAlCarrito('Dona Inflable Sunclub', 7800)" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-semibold text-sm">Añadir al Carrito</button>
-      </div>
-    </div>
+            <div class="producto">
+                <img src="img/arcoypelota.jpg" alt="Inflable Arco y Pelota">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Inflable Arco Y Pelota Juego Pileta</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $20.390</p>
+                <button onclick="agregarAlCarrito('Oxypool Nataclor 1kg', 20000)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
+            </div>
 
-    <div class="producto bg-white rounded-xl shadow-md overflow-hidden p-3 hover:shadow-xl transition duration-300" data-categoria="juegos">
-      <img src="img/inflabletucan.jpg" alt="Inflable Tucán Gigante" class="mb-3">
-      <div class="p-1 text-center">
-        <h3 class="text-sm font-semibold text-gray-800 mb-1">Inflable Flotador Colchoneta Tucán Gigante Bestway</h3>
-        <p class="text-xs text-gray-500 mb-2">2.07 x 1.50 m, soporta 90 kg.</p>
-        <p class="text-lg font-extrabold text-orange-600 mb-3">ARS 44.203</p>
-        <button onclick="agregarAlCarrito('Inflable Tucán Gigante', 44203)" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-semibold text-sm">Añadir al Carrito</button>
-      </div>
-    </div>
-    
-    </div>
+            <div class="producto">
+                <img src="img/dona.jpg" alt="Inflable Dona">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Inflable Dona Salvavidas</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $7.699</p>
+                <button onclick="agregarAlCarrito('Gel Clarificador Nataclor', 7000)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
+            </div>
 
-  <div class="text-center mt-16 p-8 bg-blue-100 rounded-xl shadow-inner">
-    <h3 class="text-2xl font-bold text-blue-700 mb-3">¡Garantía de Diversión!</h3>
-    <p class="text-gray-600">Todos nuestros inflables tienen garantía por defectos de fábrica y están hechos con materiales resistentes al cloro y al sol.</p>
-  </div>
-</main>
-<button id="volver-fijo" class="volver-btn" onclick="window.location.href='index.html'">⬅ Volver al Inicio</button>
+            <div class="producto">
+                <img src="img/colchoneta2.jpg" alt="Colchoneta Inflable Doble">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Colchoneta Inflable Doble Bestway</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $53.967</p>
+                <button onclick="agregarAlCarrito('Alguicida Nataclor 1lt', 8500)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
+            </div>
 
+            <div class="producto">
+                <img src="img/redvoley.jpg" alt="Juego Red de Voley Pileta">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Juego Pileta Red De Voley Pelota</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $61.900</p>
+                <button onclick="agregarAlCarrito('Clarificador plus Clorotec 1lt', 13000)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
+            </div>
 
-<footer class="bg-gray-800 text-white py-10 mt-10" id="contacto">
-<div class="container mx-auto px-4">
-<div class="grid grid-cols-2 md:grid-cols-4 gap-6 border-b border-gray-700 pb-6 mb-6">
-<div>
-<h4 class="text-lg font-bold mb-3 text-blue-400">Summer Piscinas</h4>
-<p class="text-sm text-gray-400">Tu fuente confiable para productos de piscina de calidad en Argentina.</p>
-</div>
-<div>
-<h4 class="text-md font-semibold mb-3">Enlaces Rápidos</h4>
-<ul class="space-y-1 text-sm">
-<li><a href="#productos" class="text-gray-400 hover:text-white transition">Productos</a></li>
-<li><a href="#testimonios" class="text-gray-400 hover:text-white transition">Testimonios</a></li>
-<li><a href="#como-comprar" class="text-gray-400 hover:text-white transition">Cómo Comprar</a></li>
-<li><a href="contacto.html" class="text-gray-400 hover:text-white transition">Contacto</a></li>
-</ul>
-</div>
-<div>
-<h4 class="text-md font-semibold mb-3">Contacto</h4>
-<p class="text-sm text-gray-400">Email: info@summerpiscinas.com</p>
-<p class="text-sm text-gray-400">Tel: +54 9 3585 615079</p>
-</div>
-<div>
-<h4 class="text-md font-semibold mb-3">Síguenos</h4>
-<div class="flex space-x-4 text-xl">
-<a href="#" class="text-gray-400 hover:text-blue-400 transition"><i class="fab fa-facebook-f"></i></a>
-<a href="#" class="text-gray-400 hover:text-blue-400 transition"><i class="fab fa-instagram"></i></a>
-</div>
-</div>
-</div>
-<div class="text-center">
-<p class="text-gray-400 text-sm">&copy; 2025 Summer Piscinas - Argentina. Envíos con OCA y Mercado Pago.</p>
-</div>
-</div>
-</footer>
+            <div class="producto">
+                <img src="img/inlfableazul.jpg" alt="Asiento Baby Filtro UV">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Asiento Baby Filtro UV Bestway</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $18.700</p>
+                <button onclick="agregarAlCarrito('Alguicida Makinthal Killer 1lt', 44500)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
+            </div>
 
-<div id="toast" class="fixed top-20 right-4 bg-green-500 text-white p-3 rounded-lg shadow-xl opacity-0 transition duration-300 z-50">
-  Producto agregado al carrito 🛒
-</div>
+            <div class="producto">
+                <img src="img/brazosbebe.jpg" alt="Flotador Piletero Bebé">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Flotador Piletero C Bracitos P Niños Bebe</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $25.990</p>
+                <button onclick="agregarAlCarrito('Alguicida Makinthal Ultra 1lt', 9000)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
+            </div>
 
-<script>
-  // --- Carrito ---
-  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-  function actualizarContador() { document.getElementById("cart-count").textContent = carrito.length; }
-  function mostrarToast() { 
-    const toast = document.getElementById("toast"); 
-    toast.style.opacity = "1"; 
-    toast.style.transform = "translateY(0)"; // Asegura que esté visible
-    setTimeout(() => { 
-      toast.style.opacity = "0"; 
-      toast.style.transform = "translateY(-20px)"; // Efecto de salida
-    }, 1500); 
-  }
-  function agregarAlCarrito(nombre, precio) { 
-    precio = Number(precio); // Asegura que el precio sea numérico
-    carrito.push({ nombre, precio }); 
-    localStorage.setItem("carrito", JSON.stringify(carrito)); 
-    actualizarContador(); 
-    mostrarToast(); 
-  }
-  actualizarContador();
+            <div class="producto">
+                <img src="img/flotadorredondo.jpg" alt="Dona Inflable Sunclub">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Dona Inflable Sunclub Para Pileta</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $7.800</p>
+                <button onclick="agregarAlCarrito('Clorotec para piletas de lona', 7000)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
+            </div>
 
-  // --- Filtro de productos ---
-  const botonesFiltro = document.querySelectorAll(".filtro");
-  const productos = document.querySelectorAll(".producto");
+            <div class="producto">
+                <img src="img/flotaflota.jpg" alt="Flota Flota">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Flota flota 1,60 mts</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $2.300 c/u</p>
+                <button onclick="agregarAlCarrito('Cloro líquido 5 litros', 6000)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
+            </div>
 
-  botonesFiltro.forEach(btn => {
-      btn.addEventListener("click", () => {
-          const categoria = btn.dataset.filter;
-          productos.forEach(producto => {
-              if(categoria==="todos" || producto.dataset.categoria===categoria) { 
-                producto.style.display="block"; 
-              }
-              else { 
-                producto.style.display="none"; 
-              }
-          });
-          // Cambia el estilo de los botones para resaltar el activo
-          botonesFiltro.forEach(b => {
-              b.classList.remove("bg-blue-600", "text-white");
-              b.classList.add("bg-white", "text-gray-700", "border-gray-300");
-          });
-          btn.classList.remove("bg-white", "text-gray-700", "border-gray-300");
-          btn.classList.add("bg-blue-600", "text-white");
-      });
-  });
+            <div class="producto">
+                <img src="img/rueda.webp" alt="Inflable rueda">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Bestway Flotador Rueda Mud Master</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $7.800</p>
+                <button onclick="agregarAlCarrito('Corrector de ph 5 litros', 8500)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
+            </div>
+        </div>
 
-  // --- Activar "Todos" al cargar ---
-  document.addEventListener("DOMContentLoaded", () => {
-      document.querySelector(".filtro[data-filter='todos']").click();
-  });
-</script>
+    <button id="volver-fijo" class="volver-btn" 
+onclick="window.location.href='index.html'">⬅ Volver al 
+Inicio</button> 
 
-</body>
-</html>
+ </section> 
+
+ <footer class="bg-gray-800 text-white py-10 mt-10" id="contacto"> 
+     <div class="container mx-auto px-4"> 
+         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 border-b border-gray-700 pb-6 mb-6"> 
+             <div> 
+                 <h4 class="text-lg font-bold mb-3 text-blue-400">Summer Piscinas</h4> 
+
+                 <p class="text-sm text-gray-400">Tu fuente 
+confiable para productos de piscina de calidad en Argentina.</p> 
+             </div> 
+             <div> 
+                 <h4 class="text-md font-semibold mb-3">Enlaces Rápidos</h4> 
+                 <ul class="space-y-1 text-sm"> 
+
+                     <li><a href="#productos" 
+class="text-gray-400 hover:text-white 
+transition">Productos</a></li> 
+
+                     <li><a href="#testimonios" 
+class="text-gray-400 hover:text-white 
+transition">Testimonios</a></li> 
+
+                     <li><a href="#como-comprar" 
+class="text-gray-400 hover:text-white transition">Cómo 
+Comprar</a></li> 
+
+                     <li><a href="contacto.html" 
+class="text-gray-400 hover:text-white 
+transition">Contacto</a></li> 
+                 </ul> 
+             </div> 
+             <div> 
+                 <h4 class="text-md font-semibold mb-3">Contacto</h4> 
+                 <p class="text-sm text-gray-400">Email: info@summerpiscinas.com</p> 
+                 <p class="text-sm text-gray-400">Tel: +54 9 3585 615079</p> 
+             </div> 
+             <div> 
+                 <h4 class="text-md font-semibold mb-3">Síguenos</h4> 
+                 <div class="flex space-x-4 text-xl"> 
+
+                     <a href="#" class="text-gray-400 
+hover:text-blue-400 transition"><i class="fab 
+fa-facebook-f"></i></a> 
+
+                     <a href="#" class="text-gray-400 
+hover:text-blue-400 transition"><i class="fab 
+fa-instagram"></i></a> 
+                 </div> 
+             </div> 
+         </div> 
+         <div class="text-center"> 
+
+             <p class="text-gray-400 text-sm">&copy; 2025 
+Summer Piscinas - Argentina. Envíos con OCA y Mercado Pago.</p> 
+         </div> 
+     </div> 
+   </footer> 
+
+ <div id="toast">Producto agregado al carrito 🛒</div> 
+
+  <script> 
+   // 🛒 Carrito 
+   let carrito = JSON.parse(localStorage.getItem("carrito")) || []; 
+
+   function actualizarContador() { 
+     document.getElementById("cart-count").textContent = carrito.length; 
+   } 
+
+   function mostrarToast() { 
+     const toast = document.getElementById("toast"); 
+     if (toast) { 
+       toast.style.opacity = "1"; 
+       toast.style.transform = "translateY(0)"; 
+       setTimeout(() => { 
+         toast.style.opacity = "0"; 
+         toast.style.transform = "translateY(-20px)"; 
+       }, 1500); 
+     } 
+   } 
+
+   function agregarAlCarrito(nombre, precio) { 
+     precio = Number(precio); 
+     carrito = JSON.parse(localStorage.getItem("carrito")) || []; 
+     carrito.push({ nombre, precio }); 
+     localStorage.setItem("carrito", JSON.stringify(carrito)); 
+     actualizarContador(); 
+     mostrarToast(); 
+   } 
+
+   // 👉 Evento para abrir la página del carrito 
+   document.getElementById("cart-button").addEventListener("click", () => { 
+     window.location.href = "carrito.html"; 
+   }); 
+
+   // 👉 Asigna evento "Agregar al carrito" a cada botón de producto 
+   document.querySelectorAll(".producto button").forEach(boton => { 
+     boton.addEventListener("click", () => { 
+       const producto = boton.parentElement; 
+       const nombre = producto.querySelector("h3").textContent; 
+       const precioTexto = producto.querySelector("p").textContent.replace(/[^\d.]/g, ""); 
+       agregarAlCarrito(nombre, precioTexto); 
+     }); 
+   }); 
+
+   actualizarContador(); 
+ </script> 
+ </body> 
+ </html>

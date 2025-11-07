@@ -1,357 +1,377 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="estilos.css">
-    <title>Summer Piscinas - Equipamiento y Accesorios para Pileta</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet"/>
-    <style>
+<!DOCTYPE html> 
+ <html lang="es"> 
+ <head> 
+   <meta charset="UTF-8"> 
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+   <title>Limpieza - Summer Piscinas</title> 
+   <script src="https://cdn.tailwindcss.com"></script> 
+   <link rel="stylesheet" href="estilos.css"> 
+   <style> 
 
-        /* --- ANIMACIÓN DE VOLVER --- */
-    .volver-btn {
-      display: inline-block;
-      background: linear-gradient(45deg, #00bfff, #007bff);
-      color: white;
-      font-weight: bold;
-      padding: 12px 25px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-size: 1.1em;
-      animation: saltar 2s infinite ease-in-out;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-      box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
-      cursor: pointer;
-    }
+         /* --- ANIMACIÓN DE VOLVER --- */ 
+     .volver-btn { 
+       display: inline-block; 
+       background: linear-gradient(45deg, #00bfff, #007bff); 
+       color: white; 
+       font-weight: bold; 
+       padding: 12px 25px; 
+       border-radius: 50px; 
+       text-decoration: none; 
+       font-size: 1.1em; 
+       animation: saltar 2s infinite ease-in-out; 
+       transition: box-shadow 0.3s ease, transform 0.3s ease; 
+       box-shadow: 0 0 15px rgba(0, 191, 255, 0.5); 
+       cursor: pointer; 
+     } 
 
-    .volver-btn:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 25px rgba(0, 191, 255, 0.8);
-    }
+     .volver-btn:hover { 
+       transform: scale(1.08); 
+       box-shadow: 0 0 25px rgba(0, 191, 255, 0.8); 
+     } 
 
-    @keyframes saltar {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
+     @keyframes saltar { 
+       0%, 100% { transform: translateY(0); } 
+       50% { transform: translateY(-10px); } 
+     } 
 
-    /* 🟢 ESTILO PARA FIJAR EL BOTÓN (BOTÓN DE VOLVER) */
-    #volver-fijo {
-        position: fixed;
-        bottom: 20px; 
-        right: 20px; 
-        z-index: 999;
-        margin: 0;
-    }
+     /* 🟢 ESTILO PARA FIJAR EL BOTÓN (BOTÓN DE VOLVER) */ 
+     #volver-fijo { 
+         position: fixed; 
+         bottom: 20px;  
+         right: 20px;  
+         z-index: 999; 
+         margin: 0; 
+     } 
 
-        /* Estilos CSS del HEAD y Corrección del Submenú */
-        body { font-family: "Poppins", sans-serif; overflow-x: hidden; scroll-behavior: smooth; background-color: #f8f8f8; }
-        
-        /* Regla para asegurar el funcionamiento del sub-submenú */
-        .submenu-piscinas-item:hover > ul {
-            display: block !important; 
-        }
+         /* Estilos CSS del HEAD y Corrección del Submenú */ 
+         body { font-family: "Poppins", sans-serif; overflow-x: hidden; scroll-behavior: smooth; background-color: #f8f8f8; } 
+          
+         /* Regla para asegurar el funcionamiento del sub-submenú */ 
+         .submenu-piscinas-item:hover > ul { 
+             display: block !important;  
+         } 
+         .producto img { 
+   width: 100%; 
+   height: 150px;         /* o el alto que prefieras */ 
+   object-fit: contain;   /* evita que se corte */ 
+ } 
+     </style> 
+ </head> 
+ <body> 
+ <header class="bg-white shadow-lg sticky top-0 z-50"> 
+ <div class="container mx-auto px-4 py-3 flex flex-wrap justify-between items-center"> 
+ <div class="flex items-center space-x-3"> 
 
-        /* ✅ ESTILOS DE IMAGEN PARA CONSISTENCIA EN LA GRILLA DE 6 */
-        .producto {
-            background-color: white;
-            padding: 1rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: center;
-        }
+ <img src="img/WhatsApp Image 2025-10-08 at 14.14.18.jpeg" alt="Logo 
+Summer Piscinas" class="h-12 w-12 object-cover rounded-full"> 
+ <h2 class="text-xl font-extrabold text-blue-600">Summer Piscinas</h2> 
+ </div> 
+ <nav class="mt-2 md:mt-0"> 
+   <ul class="flex flex-wrap justify-center space-x-1 md:space-x-2"> 
+     <li class="relative group"> 
 
-        .producto:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
-        }
+       <a href="#" class="block px-3 py-2 text-gray-700 
+hover:bg-blue-50 hover:text-blue-600 rounded transition font-semibold 
+whitespace-nowrap">Productos ▼</a> 
+       <ul class="absolute hidden group-hover:block bg-white border border-gray-200 rounded-lg shadow-xl z-10 min-w-max"> 
 
-        .producto img {
-            width: 100%;
-            height: 120px; /* Alto ajustado para la grilla de 6 */
-            object-fit: contain;
-            margin-bottom: 0.5rem;
-        }
-        .producto h3 {
-            font-size: 0.9rem; /* Texto más pequeño para el espacio reducido */
-            font-weight: 600;
-            min-height: 40px; /* Altura mínima para títulos de 2 líneas */
-        }
-        .producto p {
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: #ef4444; /* Rojo para el precio */
-            margin-top: 0.5rem;
-            margin-bottom: 0.75rem;
-        }
-        .producto button {
-            width: 100%;
-            padding: 0.5rem;
-            background-color: #3b82f6; /* Azul */
-            color: white;
-            border-radius: 0.5rem;
-            transition: background-color 0.3s ease;
-        }
-        .producto button:hover {
-            background-color: #2563eb;
-        }
+         <li><a href="productos.html" class="block px-4 py-2 
+text-gray-700 hover:bg-blue-100">Ver Todos</a></li> 
 
-    </style>
-</head>
-<body class="bg-gray-50 text-gray-900">
+         <li><a href="limpieza.html" class="block px-4 py-2 
+text-gray-700 hover:bg-blue-100">Limpieza</a></li> 
 
-    <header class="bg-white shadow-lg sticky top-0 z-50">
-<div class="container mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
-<div class="flex items-center space-x-3">
-<img src="img/WhatsApp Image 2025-10-08 at 14.14.18.jpeg" alt="Logo Summer Piscinas" class="h-12 w-12 object-cover rounded-full">
-<h2 class="text-xl font-extrabold text-blue-600">Summer Piscinas</h2>
-</div>
-<nav class="mt-2 md:mt-0">
-  <ul class="flex flex-wrap justify-center space-x-1 md:space-x-2">
-    <li class="relative group">
-      <a href="#" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition font-semibold whitespace-nowrap">Productos ▼</a>
-      <ul class="absolute hidden group-hover:block bg-white border border-gray-200 rounded-lg shadow-xl z-10 min-w-max">
-        <li><a href="productos.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Ver Todos</a></li>
-        <li><a href="limpieza.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Limpieza</a></li>
-        <li><a href="calculador-quimicos.html" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition font-semibold whitespace-nowrap">Calculador </a></li>
-        <li class="relative submenu-piscinas-item">
-          <a href="piscinas.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 pr-8">
-            Piscinas <i class="fas fa-caret-right absolute right-2 top-3 text-xs"></i>
-          </a>
-          <ul class="absolute hidden bg-gray-50 border border-gray-300 rounded-lg shadow-xl z-30 min-w-max left-full top-0">
-            <li><a href="piscinas.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-200 font-semibold">Accesorios y Equipamiento para Piscinas</a></li>
-            <li><a href="productos_piscinas.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-200">Productos para Piscinas</a></li>
-            <li><a href="inflables.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-200">Inflables</a></li>
-          </ul>
-        </li>
-        <li><a href="repuestos.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Repuestos</a></li>
-        <li><a href="mantenimiento.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Mantenimiento</a></li>
-      </ul>
-    </li>
-    <li><a href="contacto.html" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition font-semibold whitespace-nowrap">Contacto</a></li>
-  </ul>
-</nav>
-<div class="flex items-center space-x-3 mt-2 md:mt-0">
-<input type="text" placeholder="Buscar productos..." class="hidden sm:block px-3 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-32 md:w-40 text-sm">
-<button id="cart-button" onclick="window.location.href='carrito.html'" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-3 rounded-lg transition shadow-md flex items-center text-sm"> 🛒 Carrito (<span id="cart-count">0</span>) </button>
-</div>
-</div>
-</header>
+         <li><a href="calculador-quimicos.html" class="block 
+px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded 
+transition font-semibold whitespace-nowrap">Calculador 
+</a></li> 
+         <li class="relative submenu-piscinas-item"> 
+           <a href="piscinas.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 pr-8"> 
+             Piscinas <i class="fas fa-caret-right absolute right-2 top-3 text-xs"></i> 
+           </a> 
 
-    <main class="container mx-auto px-4 py-12">
-        <h1 class="text-4xl font-extrabold text-center text-blue-700 mb-4">🧪 Productos Químicos para Piscinas</h1>
-        <p class="text-xl text-center text-gray-600 mb-12">Cloro, alguicidas y correctores de PH para mantener tu pileta cristalina.</p>
+           <ul class="absolute hidden bg-gray-50 border 
+border-gray-300 rounded-lg shadow-xl z-30 min-w-max left-full top-0">
+ 
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+             <li><a href="piscinas.html" class="block px-4 py-2
+ text-gray-700 hover:bg-blue-200 font-semibold">Accesorios y 
+Equipamiento para Piscinas</a></li> 
+
+             <li><a href="productos_piscinas.html" class="block
+ px-4 py-2 text-gray-700 hover:bg-blue-200">Productos para 
+Piscinas</a></li> 
+
+             <li><a href="inflables.html" class="block px-4 
+py-2 text-gray-700 hover:bg-blue-200">Inflables</a></li> 
+           </ul> 
+         </li> 
+
+         <li><a href="repuestos.html" class="block px-4 py-2 
+text-gray-700 hover:bg-blue-100">Repuestos</a></li> 
+
+         <li><a href="mantenimiento.html" class="block px-4 
+py-2 text-gray-700 
+hover:bg-blue-100">Mantenimiento</a></li> 
+       </ul> 
+     </li> 
+
+     <li><a href="contacto.html" class="block px-3 py-2 
+text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition 
+font-semibold whitespace-nowrap">Contacto</a></li> 
+   </ul> 
+ </nav> 
+ <div class="flex items-center space-x-3 mt-2 md:mt-0"> 
+
+ <input type="text" placeholder="Buscar productos..." class="hidden 
+sm:block px-3 py-1 border border-gray-300 rounded-lg focus:outline-none 
+focus:ring-2 focus:ring-blue-500 w-32 md:w-40 text-sm"> 
+
+ <button id="cart-button" 
+onclick="window.location.href='carrito.html'" class="bg-green-500 
+hover:bg-green-600 text-white font-bold py-2 px-3 rounded-lg transition 
+shadow-md flex items-center text-sm"> 🛒 Carrito (<span 
+id="cart-count">0</span>) </button> 
+ </div> 
+ </div> 
+ </header> 
+
+ <section class="banner"> 
+   <h1>🧪 Productos Químicos para Piscinas</h1>
+   <p>Cloro, alguicidas y correctores de PH para mantener tu pileta cristalina.</p>
+ </section> 
+
+ <section class="productos"> 
+   <div class="producto">
+                <img src="img/cloropastillas.webp" alt="Cloro en pastillas Triple acción">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Cloro en pastillas Triple acción 10kg</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $130.000</p>
+                <button onclick="agregarAlCarrito('Cloro en pastillas 10kg', 130000)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
+            </div>
 
             <div class="producto">
-      <img src="img/cloropastillas.webp" alt="Cloro en pastillas Triple acción">
-      <h3>Cloro en pastillas Triple acción 10kg</h3>
-      <p>ARS $130.000</p>
-      <button onclick="agregarAlCarrito('Cloro en pastillas 10kg', 130000)">Agregar al Carrito</button>
-    </div>
-
-    <div class="producto">
-      <img src="img/clarificador.webp" alt="Clarificador Nataclor 1 litro">
-      <h3>Clarificador Nataclor 1 litro</h3>
-      <p>ARS $8.500</p>
-      <button onclick="agregarAlCarrito('Clarificador Nataclor 1lt', 8500)">Agregar al Carrito</button>
-    </div>
-
-    <div class="producto">
-      <img src="img/granulado.webp" alt="Cloro granulado disolución rápida">
-      <h3>Cloro granulado disolución rápida 1kg</h3>
-      <p>ARS $10.700</p>
-      <button onclick="agregarAlCarrito('Cloro granulado 1kg', 10700)">Agregar al Carrito</button>
-    </div>
-
-    <div class="producto">
-      <img src="img/oxipool.webp" alt="Oxypool Nataclor">
-      <h3>Oxypool Nataclor Ultra Rápido Oxigeno Activo X 1kg</h3>
-      <p>ARS $20.000</p>
-      <button onclick="agregarAlCarrito('Oxypool Nataclor 1kg', 20000)">Agregar al Carrito</button>
-    </div>
-
-    <div class="producto">
-      <img src="img/gelnat.webp" alt="Gel Clarificador Nataclor">
-      <h3>Gel Clarificador Nataclor</h3>
-      <p>ARS $7.000</p>
-      <button onclick="agregarAlCarrito('Gel Clarificador Nataclor', 7000)">Agregar al Carrito</button>
-    </div>
-
-    <div class="producto">
-      <img src="img/alguicidanat.webp" alt="Alguicida Nataclor">
-      <h3>Alguicida Nataclor 1 lt</h3>
-      <p>ARS $8.500</p>
-      <button onclick="agregarAlCarrito('Alguicida Nataclor 1lt', 8500)">Agregar al Carrito</button>
-    </div>
-
-    <div class="producto">
-      <img src="img/clorotec.webp" alt="Clarificador plus Clorotec">
-      <h3>Clarificador plus Clorotec 1lt</h3>
-      <p>ARS $13.000</p>
-      <button onclick="agregarAlCarrito('Clarificador plus Clorotec 1lt', 13000)">Agregar al Carrito</button>
-    </div>
-
-    <div class="producto">
-      <img src="img/mak1.webp" alt="Alguicida Makinthal Killer">
-      <h3>Alguicida Makinthal Killer 1 lt (para hongos negros)</h3>
-      <p>ARS $44.500</p>
-      <button onclick="agregarAlCarrito('Alguicida Makinthal Killer 1lt', 44500)">Agregar al Carrito</button>
-    </div>
-
-    <div class="producto">
-      <img src="img/mak2.webp" alt="Alguicida Makinthal Ultra">
-      <h3>Alguicida Makinthal Ultra 1 lt</h3>
-      <p>ARS $9.000</p>
-      <button onclick="agregarAlCarrito('Alguicida Makinthal Ultra 1lt', 9000)">Agregar al Carrito</button>
-    </div>
-
-    <div class="producto">
-      <img src="img/clorotec2.webp" alt="Clorotec piletas de lona">
-      <h3>Clorotec para piletas de lona Previene Algas</h3>
-      <p>ARS $7.000</p>
-      <button onclick="agregarAlCarrito('Clorotec para piletas de lona', 7000)">Agregar al Carrito</button>
-    </div>
-
-    <div class="producto">
-      <img src="img/cloroliquido.webp" alt="Cloro liquido">
-      <h3>Cloro líquido x 5 litros</h3>
-      <p>ARS $6.000</p>
-      <button onclick="agregarAlCarrito('Cloro líquido 5 litros', 6000)">Agregar al Carrito</button>
-    </div>
-
-    <div class="producto">
-      <img src="img/corrector.webp" alt="Corrector ph">
-      <h3>Correcotr de ph 5 litros</h3>
-      <p>ARS $8.500</p>
-      <button onclick="agregarAlCarrito('Corrector de ph 5 litros', 8500)">Agregar al Carrito</button>
-    </div>
-
-    <div class="producto">
-      <img src="img/phmas.webp" alt="Ph mas">
-      <h3>PH Mas Nataclor</h3>
-      <p>ARS $29.000</p>
-      <button onclick="agregarAlCarrito('PH Mas Nataclor', 29000)">Agregar al Carrito</button>
-    </div>
-
-    <div class="producto">
-      <img src="img/testkit1.webp" alt="Test kit vulcano">
-      <h3>Test Kit laboratorio Vulcano</h3>
-      <p>ARS $18.000</p>
-      <button onclick="agregarAlCarrito('Test Kit Vulcano', 18000)">Agregar al Carrito</button>
-    </div>
-
-    <div class="producto">
-      <img src="img/testkit2.webp" alt="Test kit nataclor">
-      <h3>Test Kit laboratorio Nataclor</h3>
-      <p>ARS $21.000</p>
-      <button onclick="agregarAlCarrito('Test Kit Nataclor', 21000)">Agregar al Carrito</button>
-    </div>
-
-    <div class="producto">
-      <img src="img/vulclor.webp" alt="Alguicida vulclor">
-      <h3>Alguicida Vulclor 1 lt Vulcano</h3>
-      <p>ARS $12.000</p>
-      <button onclick="agregarAlCarrito('Alguicida Vulclor 1lt', 12000)">Agregar al Carrito</button>
-    </div>
-
-    <div class="producto">
-      <img src="img/vulclor2.webp" alt="Clarificador vulclor">
-      <h3>Clarificador Vulclor 1 lt Vulcano</h3>
-      <p>ARS $12.000</p>
-      <button onclick="agregarAlCarrito('Clarificador Vulclor 1lt', 12000)">Agregar al Carrito</button>
-    </div>
-        </div>
-
-        <div class="text-center mt-16 p-8 bg-blue-100 rounded-xl shadow-inner">
-            <h3 class="text-2xl font-bold text-blue-700 mb-3">Calidad y Durabilidad</h3>
-            <p class="text-gray-600">Trabajamos solo con productos químicos diseñados para mantener la piscina en condiciones óptimas.</p>
-        </div>
-    </main>
-     <button id="volver-fijo" class="volver-btn" onclick="window.location.href='index.html'">⬅ Volver al Inicio</button>
-
-
-   <footer class="bg-gray-800 text-white py-10 mt-10" id="contacto">
-    <div class="container mx-auto px-4">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 border-b border-gray-700 pb-6 mb-6">
-            <div>
-                <h4 class="text-lg font-bold mb-3 text-blue-400">Summer Piscinas</h4>
-                <p class="text-sm text-gray-400">Tu fuente confiable para productos de piscina de calidad en Argentina.</p>
+                <img src="img/clarificador.webp" alt="Clarificador Nataclor 1 litro">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Clarificador Nataclor 1 litro</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $8.500</p>
+                <button onclick="agregarAlCarrito('Clarificador Nataclor 1lt', 8500)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
             </div>
-            <div>
-                <h4 class="text-md font-semibold mb-3">Enlaces Rápidos</h4>
-                <ul class="space-y-1 text-sm">
-                    <li><a href="#productos" class="text-gray-400 hover:text-white transition">Productos</a></li>
-                    <li><a href="#testimonios" class="text-gray-400 hover:text-white transition">Testimonios</a></li>
-                    <li><a href="#como-comprar" class="text-gray-400 hover:text-white transition">Cómo Comprar</a></li>
-                    <li><a href="contacto.html" class="text-gray-400 hover:text-white transition">Contacto</a></li>
-                </ul>
+
+            <div class="producto">
+                <img src="img/granulado.webp" alt="Cloro granulado disolución rápida">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Cloro granulado disolución rápida 1kg</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $10.700</p>
+                <button onclick="agregarAlCarrito('Cloro granulado 1kg', 10700)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
             </div>
-            <div>
-                <h4 class="text-md font-semibold mb-3">Contacto</h4>
-                <p class="text-sm text-gray-400">Email: info@summerpiscinas.com</p>
-                <p class="text-sm text-gray-400">Tel: +54 9 3585 615079</p>
+
+            <div class="producto">
+                <img src="img/oxipool.webp" alt="Oxypool Nataclor">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Oxypool Nataclor Ultra Rápido Oxigeno Activo X 1kg</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $20.000</p>
+                <button onclick="agregarAlCarrito('Oxypool Nataclor 1kg', 20000)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
             </div>
-            <div>
-                <h4 class="text-md font-semibold mb-3">Síguenos</h4>
-                <div class="flex space-x-4 text-xl">
-                    <a href="#" class="text-gray-400 hover:text-blue-400 transition"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-blue-400 transition"><i class="fab fa-instagram"></i></a>
-                </div>
+
+            <div class="producto">
+                <img src="img/gelnat.webp" alt="Gel Clarificador Nataclor">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Gel Clarificador Nataclor</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $7.000</p>
+                <button onclick="agregarAlCarrito('Gel Clarificador Nataclor', 7000)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="img/alguicidanat.webp" alt="Alguicida Nataclor">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Alguicida Nataclor 1 lt</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $8.500</p>
+                <button onclick="agregarAlCarrito('Alguicida Nataclor 1lt', 8500)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="img/clorotec.webp" alt="Clarificador plus Clorotec">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Clarificador plus Clorotec 1lt</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $13.000</p>
+                <button onclick="agregarAlCarrito('Clarificador plus Clorotec 1lt', 13000)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="img/mak1.webp" alt="Alguicida Makinthal Killer">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Alguicida Makinthal Killer 1 lt (para hongos negros)</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $44.500</p>
+                <button onclick="agregarAlCarrito('Alguicida Makinthal Killer 1lt', 44500)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="img/mak2.webp" alt="Alguicida Makinthal Ultra">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Alguicida Makinthal Ultra 1 lt</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $9.000</p>
+                <button onclick="agregarAlCarrito('Alguicida Makinthal Ultra 1lt', 9000)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="img/clorotec2.webp" alt="Clorotec piletas de lona">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Clorotec para piletas de lona Previene Algas</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $7.000</p>
+                <button onclick="agregarAlCarrito('Clorotec para piletas de lona', 7000)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="img/cloroliquido.webp" alt="Cloro liquido">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Cloro líquido x 5 litros</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $6.000</p>
+                <button onclick="agregarAlCarrito('Cloro líquido 5 litros', 6000)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="img/corrector.webp" alt="Corrector ph">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Correcotr de ph 5 litros</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $8.500</p>
+                <button onclick="agregarAlCarrito('Corrector de ph 5 litros', 8500)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="img/phmas.webp" alt="Ph mas">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">PH Mas Nataclor</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $29.000</p>
+                <button onclick="agregarAlCarrito('PH Mas Nataclor', 29000)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="img/testkit1.webp" alt="Test kit vulcano">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Test Kit laboratorio Vulcano</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $18.000</p>
+                <button onclick="agregarAlCarrito('Test Kit Vulcano', 18000)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="img/testkit2.webp" alt="Test kit nataclor">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Test Kit laboratorio Nataclor</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $21.000</p>
+                <button onclick="agregarAlCarrito('Test Kit Nataclor', 21000)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="img/vulclor.webp" alt="Alguicida vulclor">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Alguicida Vulclor 1 lt Vulcano</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $12.000</p>
+                <button onclick="agregarAlCarrito('Alguicida Vulclor 1lt', 12000)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="img/vulclor2.webp" alt="Clarificador vulclor">
+                <h3 class="text-sm font-semibold text-gray-800 mb-1 h-10 flex items-center justify-center">Clarificador Vulclor 1 lt Vulcano</h3>
+                <p class="text-lg font-extrabold text-orange-600 my-2">ARS $12.000</p>
+                <button onclick="agregarAlCarrito('Clarificador Vulclor 1lt', 12000)" class="w-full py-2 !bg-blue-600 text-white rounded-lg hover:!bg-blue-700 transition font-semibold text-sm">Agregar al Carrito</button>
             </div>
         </div>
-        <div class="text-center">
-            <p class="text-gray-400 text-sm">&copy; 2025 Summer Piscinas - Argentina. Envíos con OCA y Mercado Pago.</p>
-        </div>
-    </div>
-  </footer>
-    
-    <div id="toast" class="fixed top-20 right-4 bg-green-500 text-white p-3 rounded-lg shadow-xl opacity-0 transition duration-300 z-50">
-        Producto agregado al carrito 🛒
-    </div>
 
-    <script>
-        // Lógica del Carrito (Debe ser idéntica en todas las páginas para mantener la funcionalidad)
-        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-        
-        function actualizarContador() {
-            document.getElementById("cart-count").textContent = carrito.length;
-        }
-        
-        function mostrarToast() {
-            const toast = document.getElementById("toast");
-            if (toast) { 
-                toast.style.opacity = "1";
-                toast.style.transform = "translateY(0)";
-                setTimeout(() => {
-                    toast.style.opacity = "0";
-                    toast.style.transform = "translateY(-20px)";
-                }, 1500);
-            }
-        }
-        
-        function agregarAlCarrito(nombre, precio) {
-            precio = Number(precio);
-            carrito.push({ nombre, precio });
-            localStorage.setItem("carrito", JSON.stringify(carrito));
-            actualizarContador();
-            mostrarToast();
-        }
-        
-        // Asigna eventos a los botones de producto (faltaban en el código original, los agregué)
-        document.querySelectorAll(".producto button").forEach(boton => {
-            boton.addEventListener("click", () => {
-                const producto = boton.parentElement;
-                const nombre = producto.querySelector("h3").textContent;
-                const precioTexto = producto.querySelector("p").textContent.replace(/[^\d.]/g, "");
-                agregarAlCarrito(nombre, precioTexto);
-            });
-        });
+    <button id="volver-fijo" class="volver-btn" 
+onclick="window.location.href='index.html'">⬅ Volver al 
+Inicio</button> 
 
-        actualizarContador();
-    </script>
-</body>
-</html>
+ </section> 
+
+ <footer class="bg-gray-800 text-white py-10 mt-10" id="contacto"> 
+     <div class="container mx-auto px-4"> 
+         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 border-b border-gray-700 pb-6 mb-6"> 
+             <div> 
+                 <h4 class="text-lg font-bold mb-3 text-blue-400">Summer Piscinas</h4> 
+
+                 <p class="text-sm text-gray-400">Tu fuente 
+confiable para productos de piscina de calidad en Argentina.</p> 
+             </div> 
+             <div> 
+                 <h4 class="text-md font-semibold mb-3">Enlaces Rápidos</h4> 
+                 <ul class="space-y-1 text-sm"> 
+
+                     <li><a href="#productos" 
+class="text-gray-400 hover:text-white 
+transition">Productos</a></li> 
+
+                     <li><a href="#testimonios" 
+class="text-gray-400 hover:text-white 
+transition">Testimonios</a></li> 
+
+                     <li><a href="#como-comprar" 
+class="text-gray-400 hover:text-white transition">Cómo 
+Comprar</a></li> 
+
+                     <li><a href="contacto.html" 
+class="text-gray-400 hover:text-white 
+transition">Contacto</a></li> 
+                 </ul> 
+             </div> 
+             <div> 
+                 <h4 class="text-md font-semibold mb-3">Contacto</h4> 
+                 <p class="text-sm text-gray-400">Email: info@summerpiscinas.com</p> 
+                 <p class="text-sm text-gray-400">Tel: +54 9 3585 615079</p> 
+             </div> 
+             <div> 
+                 <h4 class="text-md font-semibold mb-3">Síguenos</h4> 
+                 <div class="flex space-x-4 text-xl"> 
+
+                     <a href="#" class="text-gray-400 
+hover:text-blue-400 transition"><i class="fab 
+fa-facebook-f"></i></a> 
+
+                     <a href="#" class="text-gray-400 
+hover:text-blue-400 transition"><i class="fab 
+fa-instagram"></i></a> 
+                 </div> 
+             </div> 
+         </div> 
+         <div class="text-center"> 
+
+             <p class="text-gray-400 text-sm">&copy; 2025 
+Summer Piscinas - Argentina. Envíos con OCA y Mercado Pago.</p> 
+         </div> 
+     </div> 
+   </footer> 
+
+ <div id="toast">Producto agregado al carrito 🛒</div> 
+
+  <script> 
+   // 🛒 Carrito 
+   let carrito = JSON.parse(localStorage.getItem("carrito")) || []; 
+
+   function actualizarContador() { 
+     document.getElementById("cart-count").textContent = carrito.length; 
+   } 
+
+   function mostrarToast() { 
+     const toast = document.getElementById("toast"); 
+     if (toast) { 
+       toast.style.opacity = "1"; 
+       toast.style.transform = "translateY(0)"; 
+       setTimeout(() => { 
+         toast.style.opacity = "0"; 
+         toast.style.transform = "translateY(-20px)"; 
+       }, 1500); 
+     } 
+   } 
+
+   function agregarAlCarrito(nombre, precio) { 
+     precio = Number(precio); 
+     carrito = JSON.parse(localStorage.getItem("carrito")) || []; 
+     carrito.push({ nombre, precio }); 
+     localStorage.setItem("carrito", JSON.stringify(carrito)); 
+     actualizarContador(); 
+     mostrarToast(); 
+   } 
+
+   // 👉 Evento para abrir la página del carrito 
+   document.getElementById("cart-button").addEventListener("click", () => { 
+     window.location.href = "carrito.html"; 
+   }); 
+
+   // 👉 Asigna evento "Agregar al carrito" a cada botón de producto 
+   document.querySelectorAll(".producto button").forEach(boton => { 
+     boton.addEventListener("click", () => { 
+       const producto = boton.parentElement; 
+       const nombre = producto.querySelector("h3").textContent; 
+       const precioTexto = producto.querySelector("p").textContent.replace(/[^\d.]/g, ""); 
+       agregarAlCarrito(nombre, precioTexto); 
+     }); 
+   }); 
+
+   actualizarContador(); 
+ </script> 
+ </body> 
+ </html>
