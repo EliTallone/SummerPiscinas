@@ -1,25 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Summer Piscinas - Equipamiento y Accesorios para Pileta</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet"/>
-    <style>
-        /* Estilos CSS del HEAD y Corrección del Submenú */
-        body { font-family: "Poppins", sans-serif; overflow-x: hidden; scroll-behavior: smooth; background-color: #f8f8f8; }
-        
-        /* Regla para asegurar el funcionamiento del sub-submenú */
-        .submenu-piscinas-item:hover > ul {
-            display: block !important; 
-        }
-    </style>
-</head>
-<body class="bg-gray-50 text-gray-900">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piscinas - Summer Piscinas</title>
+  <!-- ✅ TAILWIND CSS AGREGADO -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="estilos.css">
+ <style>
+  /* Estilo del botón Volver al Inicio con animación */
+    .volver-btn {
+      display: inline-block;
+      margin: 30px auto;
+      background: linear-gradient(45deg, #00bfff, #007bff);
+      color: white;
+      font-weight: bold;
+      padding: 12px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.1em;
+      animation: saltar 2s infinite ease-in-out;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+      cursor: pointer;
+    }
 
-    <header class="bg-white shadow-lg sticky top-0 z-50">
+    .volver-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 25px rgba(0, 191, 255, 0.8);
+    }
+
+    @keyframes saltar {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .producto img {
+  width: 100%;
+  height: 150px;         /* o el alto que prefieras */
+  object-fit: contain;   /* evita que se corte */
+}
+</style>
+
+</head>
+<body>
+  <header class="bg-white shadow-lg sticky top-0 z-50">
 <div class="container mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
 <div class="flex items-center space-x-3">
 <img src="img/WhatsApp Image 2025-10-08 at 14.14.18.jpeg" alt="Logo Summer Piscinas" class="h-12 w-12 object-cover rounded-full">
@@ -56,104 +80,228 @@
 </div>
 </div>
 </header>
+  <section class="banner">
+    <h1>Productos para piscinas</h1>
+    <p>Conocé nuestros productos</p>
+  </section>
 
-    <main class="container mx-auto px-4 py-12">
-        <h1 class="text-4xl font-extrabold text-center text-blue-700 mb-4">🛠️ Accesorios y Equipamiento para Piscinas</h1>
-        <p class="text-xl text-center text-gray-600 mb-12">Herramientas esenciales para el mantenimiento diario y la comodidad de tu pileta.</p>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-
-            <div class="bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
-                <img src="https://via.placeholder.com/400x300?text=Pertiga+Telescopica" alt="Pértiga Telescópica" class="w-full h-48 object-cover">
-                <div class="p-5 text-center">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Pértiga Telescópica 4m</h3>
-                    <p class="text-sm text-gray-500 mb-3">Aluminio reforzado, adaptable a sacahojas y cepillos.</p>
-                    <p class="text-2xl font-extrabold text-orange-600 mb-4">ARS 3.200</p>
-                    <button onclick="agregarAlCarrito('Pértiga Telescópica 4m', 3200)" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-semibold">
-                        Añadir al Carrito
-                    </button>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
-                <img src="https://via.placeholder.com/400x300?text=Sacahojas+Plano" alt="Sacahojas Plano" class="w-full h-48 object-cover">
-                <div class="p-5 text-center">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Sacahojas Plano Reforzado</h3>
-                    <p class="text-sm text-gray-500 mb-3">Malla fina de nylon, ideal para pequeñas impurezas.</p>
-                    <p class="text-2xl font-extrabold text-orange-600 mb-4">ARS 1.500</p>
-                    <button onclick="agregarAlCarrito('Sacahojas Plano', 1500)" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-semibold">
-                        Añadir al Carrito
-                    </button>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
-                <img src="https://via.placeholder.com/400x300?text=Termometro+Pileta" alt="Termómetro Flotante" class="w-full h-48 object-cover">
-                <div class="p-5 text-center">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Termómetro Flotante Premium</h3>
-                    <p class="text-sm text-gray-500 mb-3">Fácil lectura, diseño de pato/cisne (varios modelos).</p>
-                    <p class="text-2xl font-extrabold text-orange-600 mb-4">ARS 900</p>
-                    <button onclick="agregarAlCarrito('Termómetro Flotante', 900)" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-semibold">
-                        Añadir al Carrito
-                    </button>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
-                <img src="https://via.placeholder.com/400x300?text=Cubrepileta+Lona" alt="Cubrepileta de Lona" class="w-full h-48 object-cover">
-                <div class="p-5 text-center">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Cubrepileta de Lona 6x3m</h3>
-                    <p class="text-sm text-gray-500 mb-3">Protege del polvo y reduce la evaporación del cloro.</p>
-                    <p class="text-2xl font-extrabold text-orange-600 mb-4">ARS 9.500</p>
-                    <button onclick="agregarAlCarrito('Cubrepileta Lona 6x3m', 9500)" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-semibold">
-                        Añadir al Carrito
-                    </button>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="text-center mt-16 p-8 bg-blue-100 rounded-xl shadow-inner">
-            <h3 class="text-2xl font-bold text-blue-700 mb-3">Calidad y Durabilidad</h3>
-            <p class="text-gray-600">Trabajamos solo con accesorios diseñados para resistir las condiciones climáticas y el contacto continuo con químicos.</p>
-        </div>
-    </main>
-
-    <footer class="bg-gray-800 text-white py-6">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-gray-400">&copy; 2025 Summer Piscinas - Accesorios.</p>
-        </div>
-    </footer>
-    
-    <div id="toast" class="fixed top-20 right-4 bg-green-500 text-white p-3 rounded-lg shadow-xl opacity-0 transition duration-300 z-50">
-        Producto agregado al carrito 🛒
+  <section class="productos">
+    <div class="producto">
+      <img src="img/clarificador.webp" alt="Clarificador Nataclor">
+      <h3>Clarificador Nataclor 1 litro</h3>
+      <p>ARS $8.500</p>
+      <button>Agregar al Carrito</button>
     </div>
 
-    <script>
-        // Lógica del Carrito (Debe ser idéntica en todas las páginas para mantener la funcionalidad)
-        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-        
-        function actualizarContador() {
-            document.getElementById("cart-count").textContent = carrito.length;
-        }
-        
-        function mostrarToast() {
-            const toast = document.getElementById("toast");
-            toast.style.opacity = "1";
-            setTimeout(() => {
-                toast.style.opacity = "0";
-            }, 1500);
-        }
-        
-        function agregarAlCarrito(nombre, precio) {
-            precio = Number(precio);
-            carrito.push({ nombre, precio });
-            localStorage.setItem("carrito", JSON.stringify(carrito));
-            actualizarContador();
-            mostrarToast();
-        }
-        
-        actualizarContador();
-    </script>
+    <div class="producto">
+      <img src="img/cloropastillas.webp" alt="Bomba Vulcano 1HP">
+      <h3>Cloro en pastillas Triple acción 10kg</h3>
+      <p>ARS $130.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/bomba3.webp" alt="Bomba Vulcano BAP 075HP">
+      <h3>Bomba Vulcano BAP 0.75HP</h3>
+      <p>ARS $277.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/granulado.webp" alt="Filtro Vulcano VC10">
+      <h3>Cloro granulado disolución rápida 1kg</h3>
+      <p>ARS $10.700</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/filtroVC20.webp" alt="Filtro Vulcano VC20">
+      <h3>Filtro Vulcano VC20</h3>
+      <p>ARS $145.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/filtroVC30.webp" alt="Filtro Vulcano VC30">
+      <h3>Filtro Vulcano VC30</h3>
+      <p>ARS $240.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/filtroVC50.webp" alt="Filtro Vulcano VC50">
+      <h3>Filtro Vulcano VC50</h3>
+      <p>ARS $271.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/barrefondoAlu.webp" alt="Barrefondo Aluminio">
+      <h3>Barrefondo Aluminio Vulcano</h3>
+      <p>ARS $90.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/barrefondoTriangular.webp" alt="Barrefondo Triangular">
+      <h3>Barrefondo Triangular Vulcano</h3>
+      <p>ARS $24.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/barrefondo8ruedas.webp" alt="Barrefondo 8 ruedas">
+      <h3>Barrefondo 8 ruedas Vulcano</h3>
+      <p>ARS $30.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/barrefondoMedialuna.webp" alt="Barrefondo Media luna">
+      <h3>Barrefondo Media Luna Vulcano</h3>
+      <p>ARS $24.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/mango360.webp" alt="Mango 3,60MTS">
+      <h3>Mango Telescópico Vulcano 3,60 MTS</h3>
+      <p>ARS $50.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/venturi.webp" alt="Barrefondo Venturi">
+      <h3>Barrefondo Venturi Vulcano para piletas de lona</h3>
+      <p>ARS $35.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/sacahojas1.webp" alt="Saca hojas bolsa grande">
+      <h3>Saca hojas bolsa grande Vulcano 32MM</h3>
+      <p>ARS $20.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/sacahojas2.webp" alt="Saca hojas plano">
+      <h3>Saca hojas plano Vulcano 32MM</h3>
+      <p>ARS $10.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/sacahojas3.webp" alt="Saca hojas bolsa y pala">
+      <h3>Saca hojas con bolsa y pala Vulcano 32MM</h3>
+      <p>ARS $23.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/manguera1.webp" alt="Manguera Vulcano">
+      <h3>Manguera Bicolor 1 1/2 Vulcano</h3>
+      <p>ARS $4.700 x mentro</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="img/skimmer.webp" alt="Skimmer Vulcano">
+      <h3>Skimmer Vulcano Boca Chica Para Piscinas De Hormigón</h3>
+      <p>ARS $67.000</p>
+      <button>Agregar al Carrito</button>
+    </div>
+
+    <!-- Botón Volver al Inicio -->
+    <div style="text-align:center; width:100%; margin-top:30px;">
+      <button class="volver-btn" onclick="window.location.href='index.html'">⬅ Volver al Inicio</button>
+    </div>
+  </section>
+
+  <footer class="bg-gray-800 text-white py-10 mt-10" id="contacto">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 border-b border-gray-700 pb-6 mb-6">
+            <div>
+                <h4 class="text-lg font-bold mb-3 text-blue-400">Summer Piscinas</h4>
+                <p class="text-sm text-gray-400">Tu fuente confiable para productos de piscina de calidad en Argentina.</p>
+            </div>
+            <div>
+                <h4 class="text-md font-semibold mb-3">Enlaces Rápidos</h4>
+                <ul class="space-y-1 text-sm">
+                    <li><a href="#productos" class="text-gray-400 hover:text-white transition">Productos</a></li>
+                    <li><a href="#testimonios" class="text-gray-400 hover:text-white transition">Testimonios</a></li>
+                    <li><a href="#como-comprar" class="text-gray-400 hover:text-white transition">Cómo Comprar</a></li>
+                    <li><a href="contacto.html" class="text-gray-400 hover:text-white transition">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-md font-semibold mb-3">Contacto</h4>
+                <p class="text-sm text-gray-400">Email: info@summerpiscinas.com</p>
+                <p class="text-sm text-gray-400">Tel: +54 9 3585 615079</p>
+            </div>
+            <div>
+                <h4 class="text-md font-semibold mb-3">Síguenos</h4>
+                <div class="flex space-x-4 text-xl">
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <p class="text-gray-400 text-sm">&copy; 2025 Summer Piscinas - Argentina. Envíos con OCA y Mercado Pago.</p>
+        </div>
+    </div>
+  </footer>
+
+  <!-- Mensaje flotante -->
+  <div id="toast">Producto agregado al carrito 🛒</div>
+
+  <script>
+  // 🛒 Carrito
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+  function actualizarContador() {
+    document.getElementById("cart-count").textContent = carrito.length;
+  }
+
+  function mostrarToast() {
+    const toast = document.getElementById("toast");
+    if (toast) {
+      toast.style.opacity = "1";
+      toast.style.transform = "translateY(0)";
+      setTimeout(() => {
+        toast.style.opacity = "0";
+        toast.style.transform = "translateY(-20px)";
+      }, 1500);
+    }
+  }
+
+  function agregarAlCarrito(nombre, precio) {
+    precio = Number(precio);
+    carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    carrito.push({ nombre, precio });
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    actualizarContador();
+    mostrarToast();
+  }
+
+  // 👉 Evento para abrir la página del carrito
+  document.getElementById("cart-button").addEventListener("click", () => {
+    window.location.href = "carrito.html";
+  });
+
+  // 👉 Asigna evento "Agregar al carrito" a cada botón de producto
+  document.querySelectorAll(".producto button").forEach(boton => {
+    boton.addEventListener("click", () => {
+      const producto = boton.parentElement;
+      const nombre = producto.querySelector("h3").textContent;
+      const precioTexto = producto.querySelector("p").textContent.replace(/[^\d.]/g, "");
+      agregarAlCarrito(nombre, precioTexto);
+    });
+  });
+
+  actualizarContador();
+</script>
+
 </body>
 </html>

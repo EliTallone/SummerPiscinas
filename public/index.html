@@ -89,6 +89,11 @@ z-index: 1000;
 .submenu-piscinas-item:hover > ul {
     display: block !important; 
 }
+.producto img {
+  width: 100%;
+  height: 150px;         /* o el alto que prefieras */
+  object-fit: contain;   /* evita que se corte */
+}
 </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
@@ -147,16 +152,22 @@ z-index: 1000;
 <h3 class="text-3xl font-bold text-center mb-12 text-gray-800">Nuestros Productos Destacados</h3>
 <div class="flex flex-wrap justify-center gap-6">
 <div class="producto bg-white border border-gray-200 rounded-lg p-5 w-64 text-center shadow-lg hover:shadow-xl transition transform hover:scale-[1.02]">
-<img src="https://images.unsplash.com/photo-1558618047-3c8c76b1e9f5?w=250&h=150&fit=crop" alt="Cloro Granulado" class="w-full h-36 object-cover rounded-md mb-3">
-<h3 class="text-lg font-semibold mb-1">Cloro Granulado 5kg</h3>
-<p class="text-xl font-bold text-blue-600">ARS 2500</p>
+<img src="img/granulado.webp" class="w-full h-36 object-cover rounded-md mb-3">
+<h3 class="text-lg font-semibold mb-1">Cloro Granulado Disolución rápida 1 kg</h3>
+<p class="text-xl font-bold text-blue-600">ARS $10.700</p>
 <button onclick="agregarAlCarrito('Cloro Granulado 5kg', 2500)" class="w-full mt-3 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">Agregar al Carrito</button>
 </div>
 <div class="producto bg-white border border-gray-200 rounded-lg p-5 w-64 text-center shadow-lg hover:shadow-xl transition transform hover:scale-[1.02]">
-<img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=250&h=150" alt="pH +" class="w-full h-36 object-cover rounded-md mb-3">
-<h3 class="text-lg font-semibold mb-1">Balancer pH + 1L</h3>
-<p class="text-xl font-bold text-blue-600">ARS 1200</p>
-<button onclick="agregarAlCarrito('Balancer pH + 1L', 1200)" class="w-full mt-3 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">Agregar al Carrito</button>
+<img src="img/clarificador.webp" class="w-full h-36 object-cover rounded-md mb-3">
+<h3 class="text-lg font-semibold mb-1">Clarificador Nataclor 1 litro</h3>
+<p class="text-xl font-bold text-blue-600">ARS $8.500</p>
+<button onclick="agregarAlCarrito('Cloro Granulado 5kg', 2500)" class="w-full mt-3 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">Agregar al Carrito</button>
+</div>
+<div class="producto bg-white border border-gray-200 rounded-lg p-5 w-64 text-center shadow-lg hover:shadow-xl transition transform hover:scale-[1.02]">
+<img src="img/barrefondoAlu.webp" class="w-full h-36 object-cover rounded-md mb-3">
+<h3 class="text-lg font-semibold mb-1">Barrefondo Aluminio Vulcano</h3>
+<p class="text-xl font-bold text-blue-600">ARS $90.000</p>
+<button onclick="agregarAlCarrito('Cloro Granulado 5kg', 2500)" class="w-full mt-3 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">Agregar al Carrito</button>
 </div>
 </div>
 </div>
