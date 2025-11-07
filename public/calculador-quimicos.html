@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculador de Químicos - Summer Piscinas</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <link rel="stylesheet" href="estilos.css">
+  
+  <style>
+    /* Estilos de botones y animaciones mantenidos y optimizados */
+    
+    /* --- ANIMACIÓN DE VOLVER (Base para Escritorio) --- */
+    .volver-btn {
+      display: inline-block;
+      background: linear-gradient(45deg, #00bfff, #007bff);
+      color: white;
+      font-weight: bold;
+      padding: 12px 25px; 
+      font-size: 1.1em;
+      border-radius: 50px;
+      text-decoration: none;
+      animation: saltar 2s infinite ease-in-out;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+      cursor: pointer;
+    }
+
+    .volver-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 25px rgba(0, 191, 255, 0.8);
+    }
+
+    @keyframes saltar {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* ESTILO FIJO PARA BOTÓN VOLVER */
+    #volver-fijo {
+        position: fixed;
+        bottom: 20px; 
+        right: 20px; 
+        z-index: 999;
+        margin: 0;
+    }
+    
+    /* ⚡️ REGLA CSS CORREGIDA PARA SOLUCIONAR EL SUB-SUBMENÚ ⚡️ */
+    .submenu-piscinas-item:hover > ul {
+        display: block !important; 
+    }
+
+    /* 🚨 MEDIA QUERY: Reducir tamaño en dispositivos móviles */
+    @media (max-width: 768px) {
+        /* Ajuste del Botón Volver al Inicio */
+        .volver-btn {
+            padding: 10px 20px; 
+            font-size: 1em;    
+        }
+        
+        #volver-fijo {
+            bottom: 10px; 
+            right: 10px; 
+        }
+    }
+    
+    /* Estilo para la animación de resultado (Opcional, para la sección de resultados) */
+    .resultado-sugerido {
+        animation: slideIn 0.5s ease-out forwards;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    @keyframes slideIn {
+        to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="img/WhatsApp Image 2025-10-08 at 14.14.18.jpeg" alt="Logo Summer Piscinas" class="h-12 w-12 object-cover rounded-full">
+                <h2 class="text-xl font-extrabold text-blue-600">Summer Piscinas</h2>
+            </div>
+            <nav class="mt-2 md:mt-0">
+                <ul class="flex flex-wrap justify-center space-x-1 md:space-x-2">
+                    <li class="relative group">
+                        <a href="#" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition font-semibold whitespace-nowrap">Productos ▼</a>
+                        <ul class="absolute hidden group-hover:block bg-white border border-gray-200 rounded-lg shadow-xl z-10 min-w-max">
+                            <li><a href="productos.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Ver Todos</a></li>
+                            <li><a href="limpieza.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Limpieza</a></li>
+                            <li class="relative submenu-piscinas-item">
+                                <a href="piscinas.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 pr-8">Piscinas <i class="fas fa-caret-right absolute right-2 top-3 text-xs"></i></a>
+                                <ul class="absolute hidden bg-gray-50 border border-gray-300 rounded-lg shadow-xl z-30 min-w-max left-full top-0">
+                                    <li><a href="piscinas.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-200 font-semibold">Accesorios y Equipamiento</a></li>
+                                    <li><a href="productos_piscinas.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-200">Productos para Piscinas</a></li>
+                                    <li><a href="inflables.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-200">Inflables</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="repuestos.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Repuestos</a></li>
+                            <li><a href="mantenimiento.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Mantenimiento</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="calculador-quimicos.html" class="block px-3 py-2 text-blue-600 bg-blue-50 rounded transition font-bold whitespace-nowrap">Calculador 🧪</a></li>
+                    <li><a href="contacto.html" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition font-semibold whitespace-nowrap">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="flex items-center space-x-3 mt-2 md:mt-0">
+                <input type="text" placeholder="Buscar productos..." class="hidden sm:block px-3 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-32 md:w-40 text-sm">
+                <button id="cart-button" onclick="window.location.href='carrito.html'" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-3 rounded-lg transition shadow-md flex items-center text-sm"> 🛒 Carrito (<span id="cart-count">0</span>) </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-blue-700 text-white py-16 shadow-xl">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-3 flex items-center justify-center">
+                <i class="fas fa-calculator mr-3"></i> Asesoramiento Químico Rápido
+            </h1>
+            <p class="text-lg opacity-90 max-w-2xl mx-auto">Calcula los químicos iniciales necesarios para tu piscina en 3 simples pasos. ¡Agua perfecta garantizada!</p>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-4 py-12">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
+            
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-2xl border-t-4 border-blue-500">
+                <h2 class="text-2xl font-bold text-blue-700 mb-6 border-b pb-2">1. Ingresa los Datos de tu Piscina</h2>
+                
+                <form id="quimicos-form" class="space-y-5">
+                    
+                    <div>
+                        <label for="forma" class="block text-sm font-medium text-gray-700 mb-1">Forma de la Piscina</label>
+                        <select id="forma" name="forma" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 bg-white shadow-sm">
+                            <option value="rectangular">Rectangular o Cuadrada</option>
+                            <option value="ovalada">Ovalada o Redonda</option>
+                            <option value="irregular">Irregular (Elige Rectangular para un estimado)</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-4">
+                        <div>
+                            <label for="largo" class="block text-sm font-medium text-gray-700 mb-1">Largo (metros)</label>
+                            <input type="number" id="largo" name="largo" min="1" step="0.1" placeholder="Ej: 8" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="ancho" class="block text-sm font-medium text-gray-700 mb-1">Ancho (metros)</label>
+                            <input type="number" id="ancho" name="ancho" min="1" step="0.1" placeholder="Ej: 4" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="profundidad" class="block text-sm font-medium text-gray-700 mb-1">Profundidad Media (metros)</label>
+                            <input type="number" id="profundidad" name="profundidad" min="0.5" step="0.1" placeholder="Ej: 1.5" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Frecuencia de Uso</label>
+                        <div class="flex gap-4">
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="uso" value="bajo" class="form-radio text-blue-600 h-5 w-5" checked>
+                                <span class="ml-2 text-gray-700">Ocasional</span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="uso" value="medio" class="form-radio text-blue-600 h-5 w-5">
+                                <span class="ml-2 text-gray-700">Frecuente</span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="uso" value="alto" class="form-radio text-blue-600 h-5 w-5">
+                                <span class="ml-2 text-gray-700">Diario/Comercial</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-green-500 text-white font-bold py-3 rounded-lg shadow-md hover:bg-green-600 transition transform hover:scale-[1.01] mt-6 flex items-center justify-center">
+                        <i class="fas fa-check-circle mr-2"></i> 2. Calcular Sugerencia
+                    </button>
+                    
+                    <p id="error-message" class="text-red-600 font-semibold text-center mt-3 hidden">Por favor, rellena todos los campos de dimensiones.</p>
+                </form>
+            </div>
+            
+            <div class="bg-blue-50 p-6 md:p-8 rounded-xl shadow-2xl border-t-4 border-orange-500 h-full">
+                <h2 class="text-2xl font-bold text-orange-700 mb-6 border-b pb-2 flex items-center">
+                    <i class="fas fa-vial mr-2"></i> 3. Sugerencia de Productos
+                </h2>
+                
+                <div id="resultado-calculo" class="text-gray-700 space-y-4">
+                    <div id="instruccion-inicial" class="text-center py-10">
+                        <i class="fas fa-info-circle text-6xl text-blue-300 mb-4"></i>
+                        <p class="text-lg font-semibold">Introduce los datos de tu piscina para obtener un listado de químicos necesarios.</p>
+                        <p class="text-sm text-gray-500 mt-2">¡Calcularemos el volumen automáticamente!</p>
+                    </div>
+                    
+                    <div id="resultado-final" class="hidden">
+                        </div>
+                </div>
+                
+                <div class="mt-8 pt-4 border-t border-gray-200 text-center">
+                    <a href="contacto.html" class="inline-block bg-orange-500 text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-orange-600 transition">
+                        <i class="fas fa-headset mr-2"></i> Contactar a un Experto
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <button id="volver-fijo" class="volver-btn" onclick="window.location.href='index.html'">⬅ Volver al Inicio</button>
+
+    <footer class="bg-gray-800 text-white py-6 mt-10">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400">&copy; 2025 Summer Piscinas - Argentina.</p>
+        </div>
+    </footer>
+
+    <script>
+        // LÓGICA DEL CARRITO (Mantenida)
+        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        function actualizarContador() { document.getElementById("cart-count").textContent = carrito.length; }
+        actualizarContador();
+
+        // ---------------------------------------------------
+        // LÓGICA BÁSICA DEL CALCULADOR (JavaScript)
+        // ---------------------------------------------------
+        document.getElementById('quimicos-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const largo = parseFloat(document.getElementById('largo').value);
+            const ancho = parseFloat(document.getElementById('ancho').value);
+            const profundidad = parseFloat(document.getElementById('profundidad').value);
+            const uso = document.querySelector('input[name="uso"]:checked').value;
+            const forma = document.getElementById('forma').value;
+            const errorMsg = document.getElementById('error-message');
+            const resultadoFinal = document.getElementById('resultado-final');
+            const instruccionInicial = document.getElementById('instruccion-inicial');
+
+            // 1. Validación
+            if (!largo || !ancho || !profundidad) {
+                errorMsg.classList.remove('hidden');
+                resultadoFinal.classList.add('hidden');
+                instruccionInicial.classList.remove('hidden');
+                return;
+            }
+            errorMsg.classList.add('hidden');
+            instruccionInicial.classList.add('hidden');
+            
+            // 2. Cálculo del Volumen (m³)
+            // Se usa un factor de 0.85 para formas no rectangulares o para profundidades variables.
+            let volumen = largo * ancho * profundidad;
+            if (forma === 'ovalada') {
+                volumen = largo * ancho * profundidad * 0.78; // Factor aproximado para óvalo/círculo
+            } else if (forma === 'irregular') {
+                 volumen = largo * ancho * profundidad * 0.85; // Factor de seguridad
+            }
+
+            // 3. Determinación de la Sugerencia (Muy simplificado)
+            let sugerencias = [];
+            let cloroKg = Math.ceil(volumen / 100); // 1kg de cloro cada 100m³ (ejemplo)
+            let floculanteLts = Math.ceil(volumen / 200); // 1 litro de floculante cada 200m³ (ejemplo)
+            let alguicidaLts = Math.ceil(volumen / 150); // 1 litro de alguicida cada 150m³ (ejemplo)
+            
+            if (uso === 'alto') {
+                cloroKg *= 1.5; // Aumenta la dosis por uso intensivo
+            }
+
+            sugerencias.push({
+                nombre: "Cloro de Lenta Disolución (Pastillas)",
+                cantidad: `${cloroKg} kg`,
+                productoId: "CLORO_LENTO",
+                descripcion: "Para mantener el nivel de desinfección diario. Ajustado por volumen."
+            });
+            sugerencias.push({
+                nombre: "Floculante Líquido",
+                cantidad: `${floculanteLts} litro(s)`,
+                productoId: "FLOCULANTE",
+                descripcion: "Ayuda a sedimentar partículas finas, mejorando la filtración."
+            });
+             sugerencias.push({
+                nombre: "Alguicida de Mantenimiento",
+                cantidad: `${alguicidaLts} litro(s)`,
+                productoId: "ALGUICIDA",
+                descripcion: "Prevención semanal de algas y microorganismos."
+            });
+
+            // 4. Renderizar el Resultado
+            let htmlResultado = `
+                <div class="p-4 bg-blue-100 rounded-lg mb-4">
+                    <p class="font-bold text-blue-800">Volumen Estimado: ${volumen.toFixed(2)} m³</p>
+                    <p class="text-sm text-blue-600">Uso: **${uso.charAt(0).toUpperCase() + uso.slice(1)}** (${forma})</p>
+                </div>
+                <h4 class="text-xl font-semibold mb-3 text-orange-600">Recomendaciones para el Inicio de Temporada:</h4>
+                <ul class="space-y-3 list-none">
+            `;
+            
+            sugerencias.forEach(item => {
+                htmlResultado += `
+                    <li class="p-3 bg-white rounded-lg shadow flex justify-between items-center resultado-sugerido">
+                        <div>
+                            <p class="font-bold text-gray-800">${item.nombre}</p>
+                            <p class="text-sm text-gray-600 italic">${item.descripcion}</p>
+                        </div>
+                        <div class="flex flex-col items-end">
+                            <span class="text-lg font-extrabold text-green-600">${item.cantidad}</span>
+                            <button onclick="agregarAlCarrito('${item.productoId}', 1)" class="text-blue-500 hover:text-blue-700 text-sm font-semibold mt-1">
+                                Añadir a Carrito
+                            </button>
+                        </div>
+                    </li>
+                `;
+            });
+
+            htmlResultado += `</ul>`;
+            
+            resultadoFinal.innerHTML = htmlResultado;
+            resultadoFinal.classList.remove('hidden');
+
+            // Forzar la animación de entrada para los elementos
+            document.querySelectorAll('.resultado-sugerido').forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+
+        // Función de prueba para agregar al carrito (debes integrarla con tu lógica real)
+        function agregarAlCarrito(productoId, cantidad) {
+            alert(`Producto ${productoId} (x${cantidad}) añadido al carrito. ¡Integra tu lógica real aquí!`);
+            // Lógica real: carrito.push({id: productoId, qty: cantidad}); localStorage.setItem('carrito', JSON.stringify(carrito)); actualizarContador();
+        }
+
+    </script>
+</body>
+</html>
