@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Piscinas - Summer Piscinas</title>
-  <!-- ✅ TAILWIND CSS AGREGADO -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="estilos.css">
- <style>
-  /* Estilo del botón Volver al Inicio con animación */
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="estilos.css">
+    <title>Summer Piscinas - Equipamiento y Accesorios para Pileta</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet"/>
+    <style>
+
+        /* --- ANIMACIÓN DE VOLVER --- */
     .volver-btn {
       display: inline-block;
-      margin: 30px auto;
       background: linear-gradient(45deg, #00bfff, #007bff);
       color: white;
       font-weight: bold;
@@ -34,16 +35,28 @@
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
     }
-    .producto img {
-  width: 100%;
-  height: 150px;         /* o el alto que prefieras */
-  object-fit: contain;   /* evita que se corte */
-}
-</style>
 
+    /* 🟢 ESTILO PARA FIJAR EL BOTÓN (BOTÓN DE VOLVER) */
+    #volver-fijo {
+        position: fixed;
+        bottom: 20px; 
+        right: 20px; 
+        z-index: 999;
+        margin: 0;
+    }
+
+        /* Estilos CSS del HEAD y Corrección del Submenú */
+        body { font-family: "Poppins", sans-serif; overflow-x: hidden; scroll-behavior: smooth; background-color: #f8f8f8; }
+        
+        /* Regla para asegurar el funcionamiento del sub-submenú */
+        .submenu-piscinas-item:hover > ul {
+            display: block !important; 
+        }
+    </style>
 </head>
-<body>
-  <header class="bg-white shadow-lg sticky top-0 z-50">
+<body class="bg-gray-50 text-gray-900">
+
+    <header class="bg-white shadow-lg sticky top-0 z-50">
 <div class="container mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
 <div class="flex items-center space-x-3">
 <img src="img/WhatsApp Image 2025-10-08 at 14.14.18.jpeg" alt="Logo Summer Piscinas" class="h-12 w-12 object-cover rounded-full">
@@ -56,7 +69,7 @@
       <ul class="absolute hidden group-hover:block bg-white border border-gray-200 rounded-lg shadow-xl z-10 min-w-max">
         <li><a href="productos.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Ver Todos</a></li>
         <li><a href="limpieza.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100">Limpieza</a></li>
-        
+        <li><a href="calculador-quimicos.html" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition font-semibold whitespace-nowrap">Calculador </a></li>
         <li class="relative submenu-piscinas-item">
           <a href="piscinas.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 pr-8">
             Piscinas <i class="fas fa-caret-right absolute right-2 top-3 text-xs"></i>
@@ -80,20 +93,14 @@
 </div>
 </div>
 </header>
-  <section class="banner">
-    <h1>Productos para piscinas</h1>
-    <p>Conocé nuestros productos</p>
-  </section>
 
-  <section class="productos">
-    <div class="producto">
-      <img src="img/clarificador.webp" alt="Clarificador Nataclor">
-      <h3>Clarificador Nataclor 1 litro</h3>
-      <p>ARS $8.500</p>
-      <button>Agregar al Carrito</button>
-    </div>
+    <main class="container mx-auto px-4 py-12">
+        <h1 class="text-4xl font-extrabold text-center text-blue-700 mb-4">🛠️ Accesorios y Equipamiento para Piscinas</h1>
+        <p class="text-xl text-center text-gray-600 mb-12">Herramientas esenciales para el mantenimiento diario y la comodidad de tu pileta.</p>
 
-    <div class="producto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+            <div class="producto">
       <img src="img/cloropastillas.webp" alt="Bomba Vulcano 1HP">
       <h3>Cloro en pastillas Triple acción 10kg</h3>
       <p>ARS $130.000</p>
@@ -212,13 +219,16 @@
       <button>Agregar al Carrito</button>
     </div>
 
-    <!-- Botón Volver al Inicio -->
-    <div style="text-align:center; width:100%; margin-top:30px;">
-      <button class="volver-btn" onclick="window.location.href='index.html'">⬅ Volver al Inicio</button>
-    </div>
-  </section>
+        <div class="text-center mt-16 p-8 bg-blue-100 rounded-xl shadow-inner">
+            <h3 class="text-2xl font-bold text-blue-700 mb-3">Calidad y Durabilidad</h3>
+            <p class="text-gray-600">Trabajamos solo con accesorios diseñados para resistir las condiciones climáticas y el contacto continuo con químicos.</p>
+        </div>
+    </main>
+     <!-- Botón Volver al Inicio -->
+          <button id="volver-fijo" class="volver-btn" onclick="window.location.href='index.html'">⬅ Volver al Inicio</button>
 
-  <footer class="bg-gray-800 text-white py-10 mt-10" id="contacto">
+
+   <footer class="bg-gray-800 text-white py-10 mt-10" id="contacto">
     <div class="container mx-auto px-4">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 border-b border-gray-700 pb-6 mb-6">
             <div>
@@ -252,56 +262,36 @@
         </div>
     </div>
   </footer>
+    
+    <div id="toast" class="fixed top-20 right-4 bg-green-500 text-white p-3 rounded-lg shadow-xl opacity-0 transition duration-300 z-50">
+        Producto agregado al carrito 🛒
+    </div>
 
-  <!-- Mensaje flotante -->
-  <div id="toast">Producto agregado al carrito 🛒</div>
-
-  <script>
-  // 🛒 Carrito
-  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-  function actualizarContador() {
-    document.getElementById("cart-count").textContent = carrito.length;
-  }
-
-  function mostrarToast() {
-    const toast = document.getElementById("toast");
-    if (toast) {
-      toast.style.opacity = "1";
-      toast.style.transform = "translateY(0)";
-      setTimeout(() => {
-        toast.style.opacity = "0";
-        toast.style.transform = "translateY(-20px)";
-      }, 1500);
-    }
-  }
-
-  function agregarAlCarrito(nombre, precio) {
-    precio = Number(precio);
-    carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-    carrito.push({ nombre, precio });
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-    actualizarContador();
-    mostrarToast();
-  }
-
-  // 👉 Evento para abrir la página del carrito
-  document.getElementById("cart-button").addEventListener("click", () => {
-    window.location.href = "carrito.html";
-  });
-
-  // 👉 Asigna evento "Agregar al carrito" a cada botón de producto
-  document.querySelectorAll(".producto button").forEach(boton => {
-    boton.addEventListener("click", () => {
-      const producto = boton.parentElement;
-      const nombre = producto.querySelector("h3").textContent;
-      const precioTexto = producto.querySelector("p").textContent.replace(/[^\d.]/g, "");
-      agregarAlCarrito(nombre, precioTexto);
-    });
-  });
-
-  actualizarContador();
-</script>
-
+    <script>
+        // Lógica del Carrito (Debe ser idéntica en todas las páginas para mantener la funcionalidad)
+        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        
+        function actualizarContador() {
+            document.getElementById("cart-count").textContent = carrito.length;
+        }
+        
+        function mostrarToast() {
+            const toast = document.getElementById("toast");
+            toast.style.opacity = "1";
+            setTimeout(() => {
+                toast.style.opacity = "0";
+            }, 1500);
+        }
+        
+        function agregarAlCarrito(nombre, precio) {
+            precio = Number(precio);
+            carrito.push({ nombre, precio });
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+            actualizarContador();
+            mostrarToast();
+        }
+        
+        actualizarContador();
+    </script>
 </body>
 </html>
