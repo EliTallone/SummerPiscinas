@@ -13,16 +13,18 @@
   <style>
     /* 🟢 ESTILOS ESPECÍFICOS MANTENIDOS */
     
-    /* --- ANIMACIÓN DE VOLVER --- */
+    /* --- ANIMACIÓN DE VOLVER (Base para Escritorio) --- */
     .volver-btn {
       display: inline-block;
       background: linear-gradient(45deg, #00bfff, #007bff);
       color: white;
       font-weight: bold;
-      padding: 12px 25px;
+      /* Tamaño por defecto (Escritorio) */
+      padding: 12px 25px; 
+      font-size: 1.1em;
+      
       border-radius: 50px;
       text-decoration: none;
-      font-size: 1.1em;
       animation: saltar 2s infinite ease-in-out;
       transition: box-shadow 0.3s ease, transform 0.3s ease;
       box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
@@ -48,7 +50,7 @@
         margin: 0;
     }
 
-    /* 🟢 ESTILOS PARA ÍCONOS FIJOS (WhatsApp, Instagram, Mail) */
+    /* 🟢 ESTILOS PARA ÍCONOS FIJOS (WhatsApp, Instagram, Mail) - CORREGIDO RESPONSIVO */
     #iconos-fijos {
         position: fixed;
         bottom: 20px;
@@ -56,18 +58,20 @@
         z-index: 1000;
         display: flex;
         flex-direction: column; /* Apilados verticalmente */
-        gap: 15px; /* Espacio entre los íconos */
+        gap: 15px; /* Espacio entre los íconos para escritorio */
     }
 
     #iconos-fijos a {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 50px;
+        /* Tamaño por defecto (escritorio) */
+        width: 50px; 
         height: 50px;
         border-radius: 50%;
         color: white;
-        font-size: 1.8rem;
+        /* Tamaño de fuente por defecto (escritorio) */
+        font-size: 1.8rem; 
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -86,6 +90,37 @@
     }
     #iconos-fijos a:nth-child(3) { /* Gmail/Email */
         background-color: #EA4335;
+    }
+    
+    /* 🚨 MEDIA QUERY: Reducir tamaño en dispositivos móviles (768px o menos) */
+    @media (max-width: 768px) {
+        /* --- Ajuste del Botón Volver al Inicio --- */
+        .volver-btn {
+            padding: 10px 20px; /* Reducir el padding */
+            font-size: 1em;    /* Reducir el tamaño de la fuente */
+        }
+        
+        #volver-fijo {
+            bottom: 10px; /* Acercar al borde inferior */
+            right: 10px; /* Acercar al borde derecho */
+        }
+
+        /* --- Ajuste de Íconos Fijos --- */
+        #iconos-fijos {
+            bottom: 10px; 
+            left: 10px;  
+            gap: 10px;   
+        }
+        
+        #iconos-fijos a {
+            width: 40px;  
+            height: 40px;
+            font-size: 1.4rem; 
+        }
+
+        #iconos-fijos a:hover {
+            transform: scale(1.1); 
+        }
     }
 
     /* ⚡️ REGLA CSS CORREGIDA PARA SOLUCIONAR EL SUB-SUBMENÚ ⚡️ */

@@ -3,11 +3,48 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="estilos.css">
     <title>Summer Piscinas - Equipamiento y Accesorios para Pileta</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet"/>
     <style>
+
+        /* --- ANIMACIÓN DE VOLVER --- */
+    .volver-btn {
+      display: inline-block;
+      background: linear-gradient(45deg, #00bfff, #007bff);
+      color: white;
+      font-weight: bold;
+      padding: 12px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.1em;
+      animation: saltar 2s infinite ease-in-out;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+      cursor: pointer;
+    }
+
+    .volver-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 25px rgba(0, 191, 255, 0.8);
+    }
+
+    @keyframes saltar {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* 🟢 ESTILO PARA FIJAR EL BOTÓN (BOTÓN DE VOLVER) */
+    #volver-fijo {
+        position: fixed;
+        bottom: 20px; 
+        right: 20px; 
+        z-index: 999;
+        margin: 0;
+    }
+
         /* Estilos CSS del HEAD y Corrección del Submenú */
         body { font-family: "Poppins", sans-serif; overflow-x: hidden; scroll-behavior: smooth; background-color: #f8f8f8; }
         
@@ -118,12 +155,44 @@
             <p class="text-gray-600">Trabajamos solo con accesorios diseñados para resistir las condiciones climáticas y el contacto continuo con químicos.</p>
         </div>
     </main>
+     <!-- Botón Volver al Inicio -->
+          <button id="volver-fijo" class="volver-btn" onclick="window.location.href='index.html'">⬅ Volver al Inicio</button>
 
-    <footer class="bg-gray-800 text-white py-6">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-gray-400">&copy; 2025 Summer Piscinas - Accesorios.</p>
+
+   <footer class="bg-gray-800 text-white py-10 mt-10" id="contacto">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 border-b border-gray-700 pb-6 mb-6">
+            <div>
+                <h4 class="text-lg font-bold mb-3 text-blue-400">Summer Piscinas</h4>
+                <p class="text-sm text-gray-400">Tu fuente confiable para productos de piscina de calidad en Argentina.</p>
+            </div>
+            <div>
+                <h4 class="text-md font-semibold mb-3">Enlaces Rápidos</h4>
+                <ul class="space-y-1 text-sm">
+                    <li><a href="#productos" class="text-gray-400 hover:text-white transition">Productos</a></li>
+                    <li><a href="#testimonios" class="text-gray-400 hover:text-white transition">Testimonios</a></li>
+                    <li><a href="#como-comprar" class="text-gray-400 hover:text-white transition">Cómo Comprar</a></li>
+                    <li><a href="contacto.html" class="text-gray-400 hover:text-white transition">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-md font-semibold mb-3">Contacto</h4>
+                <p class="text-sm text-gray-400">Email: info@summerpiscinas.com</p>
+                <p class="text-sm text-gray-400">Tel: +54 9 3585 615079</p>
+            </div>
+            <div>
+                <h4 class="text-md font-semibold mb-3">Síguenos</h4>
+                <div class="flex space-x-4 text-xl">
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
         </div>
-    </footer>
+        <div class="text-center">
+            <p class="text-gray-400 text-sm">&copy; 2025 Summer Piscinas - Argentina. Envíos con OCA y Mercado Pago.</p>
+        </div>
+    </div>
+  </footer>
     
     <div id="toast" class="fixed top-20 right-4 bg-green-500 text-white p-3 rounded-lg shadow-xl opacity-0 transition duration-300 z-50">
         Producto agregado al carrito 🛒
